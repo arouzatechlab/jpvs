@@ -937,7 +937,7 @@
        */
       let campusEvents = [];
 
-      let currentMonthView = new Date(2025, 4, 1);
+      let currentMonthView = new Date();
       let activeFilterDate = null;
       let authenticated = false;
       onSnapshot(collection(db, "schoolEvents"), (snapshot) => {
