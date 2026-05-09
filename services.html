@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | JNANA PEETA EDUCATIONAL AND CHARITABLE TRUST</title>
+    <meta
+      name="description"
+      content="Explore education programs, healthcare initiatives, emergency response, and rural development services by JNANA PEETA TRUST in Mandya, Karnataka."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./nav.css" />
+    <link rel="stylesheet" href="./footer.css" />
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --srvPrimary: #1e463b;
+        --srvSecondary: #344054;
+        --srvSecondaryLight: #6b7280;
+        --srvBgMain: #fafafa;
+        --srvBgSecondary: #f1f5f9;
+        --srvAccent: #f2b705;
+        --srvAccentHover: #ffd166;
+        --srvWhite: #ffffff;
+        --srvTransition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        background-color: var(--srvBgMain);
+        color: var(--srvSecondary);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Playfair Display", serif;
+        color: var(--srvPrimary);
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .srvContainer {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* --- HERO SECTION --- */
+      .srvHero {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: url("https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=2070&auto=format&fit=crop")
+          center/cover no-repeat;
+        color: var(--srvWhite);
+      }
+
+      .srvHeroOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(30, 70, 59, 0.85);
+        z-index: 1;
+      }
+
+      .srvHeroContent {
+        position: relative;
+        z-index: 2;
+      }
+
+      .srvHeroTitle {
+        font-size: clamp(2.5rem, 8vw, 4.5rem);
+        margin-bottom: 15px;
+        color: var(--srvWhite);
+      }
+
+      .srvBreadcrumb {
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+      .srvBreadcrumb span {
+        color: var(--srvAccent);
+      }
+      .srvBreadcrumb b {
+        margin: 0 10px;
+        opacity: 0.6;
+        font-weight: normal;
+      }
+
+      @media (min-width: 1024px) {
+        .srvHero {
+          height: 70vh;
+        }
+      }
+
+      /* --- FEATURE PROGRAM SECTION (MATCHING REFERENCE) --- */
+      .srvProgramSection {
+        padding: 80px 0;
+        background: var(--srvWhite);
+      }
+
+      .srvProgramHeader {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 50px;
+      }
+
+      @media (min-width: 768px) {
+        .srvProgramHeader {
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+      }
+
+      .srvSubTitle {
+        display: block;
+        color: var(--srvAccent);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+      }
+
+      .srvMainTitle {
+        font-size: clamp(1.8rem, 5vw, 2.8rem);
+      }
+
+      .srvBtnOutline {
+        padding: 12px 30px;
+        border: 2px solid var(--srvAccent);
+        color: var(--srvPrimary);
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        transition: var(--srvTransition);
+      }
+      .srvBtnOutline:hover {
+        background: var(--srvAccent);
+      }
+
+      .srvProgramGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      @media (min-width: 640px) {
+        .srvProgramGrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .srvProgramGrid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .srvProgramCard {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .srvProgramImg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .srvProgramOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(30, 70, 59, 0.4);
+        transition: var(--srvTransition);
+        z-index: 1;
+      }
+
+      .srvProgramCard:hover .srvProgramOverlay {
+        background: rgba(30, 70, 59, 0.8);
+      }
+      .srvProgramCard:hover .srvProgramImg {
+        transform: scale(1.1);
+      }
+
+      .srvProgramContent {
+        position: relative;
+        z-index: 2;
+        color: var(--srvWhite);
+        padding: 20px;
+      }
+
+      .srvIconCircle {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .srvIconCircle svg {
+        width: 35px;
+        height: 35px;
+        fill: var(--srvWhite);
+      }
+
+      .srvProgTitle {
+        font-size: 1.6rem;
+        color: var(--srvWhite);
+        font-weight: 700;
+      }
+
+      .srvProgArrow {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(50%);
+        width: 50px;
+        height: 50px;
+        background: var(--srvAccent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+        transition: var(--srvTransition);
+      }
+      .srvProgramCard:hover .srvProgArrow {
+        transform: translateX(-50%) translateY(0);
+        bottom: 20px;
+      }
+      .srvProgArrow svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--srvPrimary);
+        transform: rotate(-45deg);
+      }
+
+      /* --- ALTERNATING SERVICES LIST --- */
+      .srvListSection {
+        padding: 40px 0;
+      }
+
+      .srvServiceRow {
+        display: flex;
+        flex-direction: column;
+        background: var(--srvWhite);
+        margin-bottom: 60px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+      }
+
+      .srvServiceImgSide {
+        width: 100%;
+        height: 350px;
+      }
+
+      .srvServiceImgSide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .srvServiceTextSide {
+        width: 100%;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      @media (min-width: 1024px) {
+        .srvServiceRow {
+          flex-direction: row;
+          height: 500px;
+          margin-bottom: 0;
+        }
+        .srvServiceRow.srvReverse {
+          flex-direction: row-reverse;
+        }
+        .srvServiceImgSide {
+          width: 50%;
+          height: 100%;
+        }
+        .srvServiceTextSide {
+          width: 50%;
+          padding: 0 80px;
+        }
+      }
+
+      .srvServiceTitle {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+      .srvServiceTitle::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--srvAccent);
+      }
+
+      .srvServiceDesc {
+        color: var(--srvSecondaryLight);
+        margin-bottom: 30px;
+        font-size: 1.05rem;
+      }
+
+      /* --- ANIMATED DONATE BUTTON --- */
+      .srvDonateBtn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 18px 35px;
+        background: var(--srvAccent);
+        color: var(--srvPrimary);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        overflow: hidden;
+        z-index: 1;
+        width: fit-content;
+      }
+
+      .srvDonateBtn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--srvPrimary);
+        transition: var(--srvTransition);
+        z-index: -1;
+      }
+
+      .srvDonateBtn:hover {
+        color: var(--srvWhite);
+      }
+
+      .srvDonateBtn:hover::before {
+        left: 0;
+      }
+
+      .srvDonateBtn svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+        transition: transform 0.3s ease;
+      }
+      .srvDonateBtn:hover svg {
+        transform: scale(1.2);
+      }
+
+      /* --- CTA DONATION SECTION --- */
+      .srvCTASection {
+        padding: 100px 0;
+        background:
+          linear-gradient(rgba(30, 70, 59, 0.9), rgba(30, 70, 59, 0.9)),
+          url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        text-align: center;
+        color: var(--srvWhite);
+      }
+
+      .srvCTATitle {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: var(--srvWhite);
+        margin-bottom: 30px;
+      }
+
+      /* --- ANIMATIONS --- */
+      .srvFadeUp {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.8s ease-out;
+      }
+      .srvSlideLeft {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: 0.8s ease-out;
+      }
+      .srvSlideRight {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: 0.8s ease-out;
+      }
+
+      .srvVisible {
+        opacity: 1 !important;
+        transform: translate(0, 0) !important;
+      }
+
+      @media (max-width: 767px) {
+        .srvSlideLeft,
+        .srvSlideRight {
+          transform: translateY(30px);
+        }
+        .srvCTASection {
+          background-attachment: scroll;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOPBAR -->
+    <div class="arzTopbar" id="arzTopbar">
+      <div class="arzTopbarLeft">
+        <div class="arzScrollingTagline">
+          Empowering Lives Through Education & Care | Together We Build a Better
+          Tomorrow | Empowering Lives Through Education & Care | Together We
+          Build a Better Tomorrow
+        </div>
+      </div>
+      <div class="arzTopbarRight">
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+          />
+        </svg>
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+          />
+        </svg>
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.294 19.497h2.039L6.482 3.239H4.293l13.314 17.411z"
+          />
+        </svg>
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav class="arzNavbar" id="arzNavbar">
+      <a href="./index.html" class="arzBrandContainer">
+        <div class="arzLogoContainer">
+          <img src="./assets/logo.webp" alt="JNANA PEETA Logo" />
+        </div>
+        <div class="arzTrustName" id="arzTrustName">
+          <span class="arzMainName">Jnanapeeta</span>
+          <span class="arzSubName">Educational and Charitable Trust</span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="arzNavLinks">
+        <a href="./index.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Home
+        </a>
+        <a href="./services.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+            ></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          Services
+        </a>
+        <a href="./about.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          About
+        </a>
+        <a href="./gallery.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          Gallery
+        </a>
+        <a href="./school.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+            ></path>
+          </svg>
+          JPVS School
+        </a>
+        <a href="./contact.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Contact
+        </a>
+        <a href="./donation.html" class="arzDonationBtn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+            ></path>
+          </svg>
+          Donation
+        </a>
+      </div>
+
+      <!-- Hamburger Icon -->
+      <div class="arzHamburger" id="arzHamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- FULLSCREEN MOBILE MENU -->
+    <div class="arzMenuOverlay" id="arzMenuOverlay">
+      <div class="arzMenuClose" id="arzMenuClose">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+
+      <div class="arzMobileLogoSection">
+        <img src="./assets/logo.webp" alt="Logo" />
+        <div class="arzTrustName">
+          <span class="arzMainName" style="font-size: 16px">Jnanapeeta</span>
+          <span class="arzSubName" style="font-size: 11px"
+            >Educational and Charitable Trust</span
+          >
+        </div>
+      </div>
+
+      <div class="arzMobileLinks">
+        <a href="./index.html" class="arzMobileLink">Home</a>
+        <a href="./services.html" class="arzMobileLink">Services</a>
+        <a href="./about.html" class="arzMobileLink">About</a>
+        <a href="./gallery.html" class="arzMobileLink">Gallery</a>
+        <a href="./school.html" class="arzMobileLink">JPVS School</a>
+        <a href="./contact.html" class="arzMobileLink">Contact</a>
+        <a
+          href="./donation.html"
+          class="arzDonationBtn"
+          style="margin-top: 20px; align-self: flex-start"
+        >
+          Donation
+        </a>
+      </div>
+    </div>
+    <!-- HERO SECTION -->
+    <header class="srvHero">
+      <div class="srvHeroOverlay"></div>
+      <div class="srvHeroContent">
+        <h1 class="srvHeroTitle">Services</h1>
+        <nav class="srvBreadcrumb"><span>Home</span> <b>></b> Services</nav>
+      </div>
+    </header>
+
+    <!-- FEATURE PROGRAM SECTION (REFERENCE REPLICA) -->
+    <section class="srvProgramSection">
+      <div class="srvContainer">
+        <div class="srvProgramHeader srvFadeUp">
+          <div>
+            <span class="srvSubTitle">We Help Around The World</span>
+            <h2 class="srvMainTitle">Introduce Our Program</h2>
+          </div>
+          <a href="#" class="srvBtnOutline">Learn More</a>
+        </div>
+
+        <div class="srvProgramGrid">
+          <!-- Program 1 -->
+          <div class="srvProgramCard srvFadeUp">
+            <img
+              class="srvProgramImg"
+              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022&auto=format&fit=crop"
+              alt="Education"
+            />
+            <div class="srvProgramOverlay"></div>
+            <div class="srvProgramContent">
+              <div class="srvIconCircle">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"
+                  />
+                </svg>
+              </div>
+              <h4 class="srvProgTitle">We Educate</h4>
+            </div>
+            <div class="srvProgArrow">
+              <svg viewBox="0 0 24 24">
+                <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Program 2 -->
+          <div class="srvProgramCard srvFadeUp">
+            <img
+              class="srvProgramImg"
+              src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop"
+              alt="Help"
+            />
+            <div class="srvProgramOverlay"></div>
+            <div class="srvProgramContent">
+              <div class="srvIconCircle">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  />
+                </svg>
+              </div>
+              <h4 class="srvProgTitle">We Help</h4>
+            </div>
+            <div class="srvProgArrow">
+              <svg viewBox="0 0 24 24">
+                <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Program 3 -->
+          <div class="srvProgramCard srvFadeUp">
+            <img
+              class="srvProgramImg"
+              src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073&auto=format&fit=crop"
+              alt="Build"
+            />
+            <div class="srvProgramOverlay"></div>
+            <div class="srvProgramContent">
+              <div class="srvIconCircle">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" />
+                </svg>
+              </div>
+              <h4 class="srvProgTitle">We Build</h4>
+            </div>
+            <div class="srvProgArrow">
+              <svg viewBox="0 0 24 24">
+                <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" />
+              </svg>
+            </div>
+          </div>
+
+          <!-- Program 4 -->
+          <div class="srvProgramCard srvFadeUp">
+            <img
+              class="srvProgramImg"
+              src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=2070&auto=format&fit=crop"
+              alt="Donate"
+            />
+            <div class="srvProgramOverlay"></div>
+            <div class="srvProgramContent">
+              <div class="srvIconCircle">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"
+                  />
+                </svg>
+              </div>
+              <h4 class="srvProgTitle">We Donate</h4>
+            </div>
+            <div class="srvProgArrow">
+              <svg viewBox="0 0 24 24">
+                <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE SERVICES LIST -->
+    <section class="srvListSection">
+      <!-- Service 1: Education -->
+      <article class="srvServiceRow">
+        <div class="srvServiceImgSide srvSlideLeft">
+          <img
+            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=2073&auto=format&fit=crop"
+            alt="Rural Education Programs"
+          />
+        </div>
+        <div class="srvServiceTextSide srvSlideRight">
+          <h3 class="srvServiceTitle">Rural Education Programs</h3>
+          <p class="srvServiceDesc">
+            We bridge the digital divide by providing computers, high-quality
+            study materials, and scholarship funds to talented students in
+            remote villages of Mandya.
+          </p>
+          <a href="#" class="srvDonateBtn">
+            Donate Now
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Service 2: Health (REVERSED) -->
+      <article class="srvServiceRow srvReverse">
+        <div class="srvServiceImgSide srvSlideRight">
+          <img
+            src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop"
+            alt="Specialized Health Camps"
+          />
+        </div>
+        <div class="srvServiceTextSide srvSlideLeft">
+          <h3 class="srvServiceTitle">Specialized Health Camps</h3>
+          <p class="srvServiceDesc">
+            Access to specialized medical care is often limited in rural areas.
+            Our trust organizes regular eye-checkup camps, cardiac screenings,
+            and general wellness programs with top-tier doctors.
+          </p>
+          <a href="#" class="srvDonateBtn">
+            Donate Now
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Service 3: Food Kits -->
+      <article class="srvServiceRow">
+        <div class="srvServiceImgSide srvSlideLeft">
+          <img
+            src="https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=2070&auto=format&fit=crop"
+            alt="Nutritional Food Kit Distribution"
+          />
+        </div>
+        <div class="srvServiceTextSide srvSlideRight">
+          <h3 class="srvServiceTitle">Food Kit Distribution</h3>
+          <p class="srvServiceDesc">
+            No family should go hungry. We provide essential monthly food kits
+            containing grains, pulses, and oils to marginalized families and
+            daily wage workers.
+          </p>
+          <a href="#" class="srvDonateBtn">
+            Donate Now
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Service 4: Orphanage (REVERSED) -->
+      <article class="srvServiceRow srvReverse">
+        <div class="srvServiceImgSide srvSlideRight">
+          <img
+            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=2070&auto=format&fit=crop"
+            alt="Orphanage & Elderly Support"
+          />
+        </div>
+        <div class="srvServiceTextSide srvSlideLeft">
+          <h3 class="srvServiceTitle">Orphanage & Old Age Support</h3>
+          <p class="srvServiceDesc">
+            We extend our hand to the most vulnerable members of society,
+            providing financial aid, clothing, and infrastructure support to
+            local orphanages and elderly care homes.
+          </p>
+          <a href="#" class="srvDonateBtn">
+            Donate Now
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- CTA DONATION -->
+    <section class="srvCTASection">
+      <div class="srvContainer">
+        <h2 class="srvCTATitle srvFadeUp">
+          Every Small Act Makes A Difference
+        </h2>
+        <p
+          class="srvFadeUp"
+          style="
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+          "
+        >
+          Join us in our mission to transform lives. Your contribution today
+          builds a better tomorrow for rural Karnataka.
+        </p>
+        <a href="#" class="srvDonateBtn srvFadeUp" style="padding: 20px 50px"
+          >DONATE NOW</a
+        >
+      </div>
+    </section>
+    <!-- Scroll target for testing -->
+    <div id="top"></div>
+
+    <footer class="ftrFooter">
+      <div class="ftrContainer">
+        <div class="ftrGrid ftrFadeIn" id="ftrMainGrid">
+          <!-- SECTION 1: ABOUT -->
+          <div class="ftrSectionLogo">
+            <div class="ftrLogoPlaceholder">
+              <img
+                src="./assets/logo.webp"
+                alt="logo"
+                onclick="window.location.href = './index.html'"
+              />
+            </div>
+            <h3 class="ftrTrustName">
+              JNANA PEETA EDUCATIONAL AND CHARITABLE TRUST
+            </h3>
+            <p class="ftrDescription">
+              Empowering lives through education, healthcare, and rural
+              development. Dedicated to building a sustainable and equitable
+              future for all.
+            </p>
+          </div>
+
+          <!-- SECTION 2: LINKS -->
+          <nav class="ftrSectionLinks">
+            <h4 class="ftrTitle">Quick Links</h4>
+            <ul class="ftrLinkList">
+              <li class="ftrLinkItem">
+                <a href="./index.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Home</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./about.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >About</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./contact.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Contact</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./gallery.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Gallery</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./services.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Services</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./school.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >JPVS School</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./donation.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Donation</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- SECTION 3: ADDRESS & MAP -->
+          <div class="ftrSectionLocation">
+            <h4 class="ftrTitle">Visit Us</h4>
+            <address class="ftrAddressBlock">
+              M M ROAD DUGGANAHALLI VILLAGE AND POST<br />
+              MALAVALLI TALUK MANDYA DISTRICT<br />
+              KIRAGAVALU HOBALI<br />
+              PIN CODE - 571430
+            </address>
+            <div class="ftrLocationWrapper">
+              <iframe
+                class="ftrMapEmbed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4501.89930874704!2d76.9964373505319!3d12.412484234540736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf08a450bb9655%3A0x529b67261e1a741e!2sJNANAPEETA%20VIDYA%20SAMSTHE%20(JPVS)DUGGANAHALLI!5e0!3m2!1sen!2sin!4v1777523271236!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+              >
+              </iframe>
+              <img
+                class="ftrQrCode"
+                src="./assets/qr.webp"
+                alt="Scan to visit website"
+              />
+            </div>
+          </div>
+
+          <!-- SECTION 4: SOCIALS -->
+          <div class="ftrSectionSocial">
+            <h4 class="ftrTitle">Follow Us</h4>
+            <p class="ftrDescription">
+              Stay updated with our latest activities and programs on social
+              media.
+            </p>
+            <div class="ftrSocialContainer">
+              <a href="#" class="ftrSocialIcon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14h-3v4.11h3V22h5V11.58h4.07l.2-4.12z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m4.4 3a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m5-2.5a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="Twitter">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="YouTube">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M21.58 7.19a3.02 3.02 0 0 0-2.12-2.13C17.59 4.5 12 4.5 12 4.5s-5.59 0-7.46.56a3.02 3.02 0 0 0-2.12 2.13C2 9.06 2 12 2 12s0 2.94.42 4.81a3.02 3.02 0 0 0 2.12 2.13c1.87.56 7.46.56 7.46.56s5.59 0 7.46-.56a3.02 3.02 0 0 0 2.12-2.13C22 14.94 22 12 22 12s0-2.94-.42-4.81zM9.54 15.56V8.44L15.81 12l-6.27 3.56z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ftrCopyright">
+          &copy; <span id="ftrYear"></span> JNANA PEETA EDUCATIONAL AND
+          CHARITABLE TRUST. All Rights Reserved.Designed by
+          <a
+            href="https://www.arouzatechlabs.in/"
+            target="_blank"
+            style="color: var(--ftrAccent); text-decoration: none"
+            >AROUZA TECHLABS</a
+          >.
+        </div>
+      </div>
+
+      <button class="ftrBackToTop" id="ftrBackToTop" title="Back to top">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+      </button>
+    </footer>
+    <script src="./nav.js" defer></script>
+    <script src="./footer.js" defer></script>
+    <!-- VANILLA JS FOR ANIMATIONS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Intersection Observer for scroll animations
+        const srvObserverOptions = {
+          threshold: 0.15,
+        };
+
+        const srvObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("srvVisible");
+            }
+          });
+        }, srvObserverOptions);
+
+        // Select all elements with animation classes
+        const srvAnimateItems = document.querySelectorAll(
+          ".srvFadeUp, .srvSlideLeft, .srvSlideRight",
+        );
+        srvAnimateItems.forEach((item) => srvObserver.observe(item));
+
+        // Smooth Scroll for buttons (Placeholder logic)
+        const srvButtons = document.querySelectorAll('a[href^="#"]');
+        srvButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const targetId = btn.getAttribute("href");
+            if (targetId === "#") return;
+            e.preventDefault();
+            document.querySelector(targetId).scrollIntoView({
+              behavior: "smooth",
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

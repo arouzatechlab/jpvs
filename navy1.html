@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium Navbar System</title>
+    <style>
+      :root {
+        --primary: #1e3a8a;
+        --primarydark: #172554;
+        --accent: #facc15;
+        --textdark: #1f2937;
+        --white: #ffffff;
+        --bglight: #f8fafc;
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+
+      body {
+        background-color: var(--bglight);
+        color: var(--textdark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* --- Navbar Base --- */
+      .nvbheader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: var(--white);
+        display: flex;
+        align-items: center;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      .nvbheaderscrolled {
+        box-shadow: var(--shadow);
+        height: 70px;
+      }
+
+      .nvbcontainer {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* --- Logo --- */
+      .nvblogo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        height: 100%;
+      }
+
+      .nvblogo img {
+        height: 60px;
+        width: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      /* Brand Text */
+      .nvbbrandtext {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1.1;
+      }
+
+      /* First Line (Main Brand) */
+      .nvblineone {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--primary);
+        letter-spacing: 1px;
+      }
+
+      /* Second Line (Supporting Name) */
+      .nvblinetwo {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--textdark);
+        letter-spacing: 1.2px;
+      }
+
+      .nvbschoolname {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 0.5px;
+        line-height: 1.1;
+      }
+
+      /* --- Desktop Nav --- */
+      .nvbnav {
+        display: none;
+      }
+
+      .nvblist {
+        display: flex;
+        list-style: none;
+        gap: 32px;
+      }
+
+      .nvblink {
+        text-decoration: none;
+        color: var(--textdark);
+        font-weight: 500;
+        font-size: 0.9rem;
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .nvblink:hover {
+        color: var(--primary);
+      }
+
+      .nvblink::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: var(--transition);
+      }
+
+      .nvblink:hover::after {
+        width: 100%;
+      }
+
+      /* --- Buttons --- */
+      .nvbbtn {
+        padding: 12px 24px;
+        border-radius: 8px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block;
+      }
+
+      .nvbbtnprimary {
+        background: var(--primary);
+        color: var(--white);
+      }
+
+      .nvbbtnprimary:hover {
+        background: var(--primarydark);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+      }
+
+      .nvbright {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      /* --- Hamburger Trigger --- */
+      .nvbhamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        z-index: 1001;
+        width: 44px;
+        height: 44px;
+        border: none;
+        background: transparent;
+      }
+
+      .nvbbar {
+        width: 24px;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 10px;
+        transition: var(--transition);
+      }
+
+      /* --- Mobile Overlay --- */
+      .nvbmobilemenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--primary);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        transform: translateX(100%);
+        transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .nvbmobilemenuactive {
+        transform: translateX(0);
+      }
+
+      /* Close Icon inside Mobile Menu */
+      .nvbcloseicon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 2001;
+      }
+
+      .nvbcrossbar {
+        width: 28px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 10px;
+        position: absolute;
+        transition: var(--transition);
+      }
+
+      .nvbcrossbar1 {
+        transform: rotate(45deg);
+      }
+      .nvbcrossbar2 {
+        transform: rotate(-45deg);
+      }
+
+      .nvbmobilelist {
+        list-style: none;
+        text-align: center;
+        width: 100%;
+      }
+
+      .nvbmobileitem {
+        margin: 20px 0;
+        opacity: 0;
+        transform: translateX(30px);
+        transition: all 0.4s ease;
+      }
+
+      .nvbmobilemenuactive .nvbmobileitem {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .nvbmobilelink {
+        text-decoration: none;
+        color: var(--white);
+        font-size: 1.8rem;
+        font-weight: 700;
+        transition: var(--transition);
+        display: block;
+      }
+
+      .nvbmobileloginbtn {
+        margin-top: 20px;
+        background: var(--accent);
+        color: var(--primarydark);
+        width: 80%;
+        max-width: 280px;
+      }
+
+      /* --- Admin Login Modal --- */
+      .nvbmodalwrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(15, 23, 42, 0.9);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 3000;
+        backdrop-filter: blur(8px);
+        padding: 20px;
+      }
+
+      .nvbmodal {
+        background: var(--white);
+        width: 100%;
+        max-width: 400px;
+        padding: 40px 30px;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      .nvbmodalclose {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #f1f5f9;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .nvbinput {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #e2e8f0;
+        border-radius: 10px;
+        margin-top: 8px;
+        outline: none;
+      }
+
+      /* --- Desktop Responsive --- */
+      .nvbdesktoplogin {
+        display: none; /* Mobile first: hide */
+      }
+
+      @media (min-width: 1024px) {
+        .nvbnav {
+          display: block;
+        }
+        .nvbhamburger {
+          display: none;
+        }
+        .nvbdesktoplogin {
+          display: inline-block;
+        }
+        .nvblogo {
+          width: 140px;
+          height: 44px;
+        }
+        .nvbmobilemenu {
+          display: none;
+        }
+        .nvbcontainer {
+          padding: 0 40px;
+        }
+      }
+
+      .nvbmaincontent {
+        padding: 140px 20px;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .nvbadminbadge {
+        display: none;
+        background: var(--accent);
+        color: var(--primarydark);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.6rem;
+        font-weight: 900;
+        position: absolute;
+        top: -10px;
+        right: -20px;
+      }
+
+      .nvbadminmode .nvbadminbadge {
+        display: block;
+      }
+      .nvbadminmode .nvbheader {
+        border-bottom: 4px solid var(--accent);
+      }
+    </style>
+  </head>
+  <body id="nvbbody">
+    <header class="nvbheader" id="nvbheader">
+      <div class="nvbcontainer">
+        <div class="nvbleft">
+          <div class="nvblogo">
+            <a href="./home.html">
+              <img src="./assets/erasebg-transformed.webp" alt="School Logo"
+            /></a>
+
+            <div class="nvbbrandtext">
+              <span class="nvblineone">JNANAPEETA</span>
+              <span class="nvblinetwo">VIDYA SAMSTE</span>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nvbnav">
+          <ul class="nvblist">
+            <li><a href="./home.html" class="nvblink">HOME</a></li>
+            <li><a href="./academics.html" class="nvblink">ACADEMICS</a></li>
+            <li><a href="./gallerys.html" class="nvblink">GALLERY</a></li>
+            <li><a href="./faculty.html" class="nvblink">FACULTY</a></li>
+            <li><a href="./events.html" class="nvblink">EVENTS CALENDAR</a></li>
+            <li><a href="./admission.html" class="nvblink">ADMISSION</a></li>
+          </ul>
+        </nav>
+
+        <div class="nvbright">
+          <button
+            class="nvbbtn nvbbtnprimary nvbdesktoplogin"
+            id="nvbopenmodal"
+          >
+            ADMIN LOGIN
+          </button>
+          <button class="nvbhamburger" id="nvbhamburger" aria-label="Open Menu">
+            <span class="nvbbar nvbbar1"></span>
+            <span class="nvbbar nvbbar2"></span>
+            <span class="nvbbar nvbbar3"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nvbmobilemenu" id="nvbmobilemenu">
+      <div class="nvbcloseicon" id="nvbcloseicon" aria-label="Close Menu">
+        <span class="nvbcrossbar nvbcrossbar1"></span>
+        <span class="nvbcrossbar nvbcrossbar2"></span>
+      </div>
+
+      <ul class="nvbmobilelist">
+        <li class="nvbmobileitem">
+          <a href="./home.html" class="nvbmobilelink">HOME</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./academics.html" class="nvbmobilelink">ACADEMICS</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./gallerys.html" class="nvbmobilelink">GALLERY</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./faculty.html" class="nvbmobilelink">FACULTY</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./events.html" class="nvbmobilelink">EVENTS CALENDAR</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./admission.html" class="nvbmobilelink">ADMISSION</a>
+        </li>
+        <li class="nvbmobileitem">
+          <button
+            class="nvbbtn nvbbtnprimary nvbmobileloginbtn"
+            id="nvbmobilelogin"
+          >
+            ADMIN LOGIN
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="nvbmodalwrapper" id="nvbmodalwrapper">
+      <div class="nvbmodal">
+        <button class="nvbmodalclose" id="nvbmodalclose">&times;</button>
+        <h2 style="text-align: center; color: var(--primary)">Admin Login</h2>
+        <p
+          style="
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin: 10px 0 25px;
+          "
+        >
+          Enter credentials to manage the platform.
+        </p>
+
+        <div style="margin-bottom: 15px">
+          <label style="font-size: 0.75rem; font-weight: 800">USERNAME</label>
+          <input
+            type="text"
+            id="nvbadminusername"
+            class="nvbinput"
+            placeholder="Admin username"
+          />
+        </div>
+        <div style="margin-bottom: 25px">
+          <label style="font-size: 0.75rem; font-weight: 800">PASSWORD</label>
+          <input
+            type="password"
+            id="nvbadminpassword"
+            class="nvbinput"
+            placeholder="••••••••"
+          />
+        </div>
+        <button
+          class="nvbbtn nvbbtnprimary"
+          id="nvbloginbtn"
+          style="width: 100%; height: 55px"
+        >
+          SIGN IN
+        </button>
+      </div>
+    </div>
+
+    <!-- <main class="nvbmaincontent">
+      <h1>Premium Campus Portal</h1>
+      <p>
+        The Admin Login button is now correctly visible in both desktop and
+        mobile views.
+      </p>
+
+      <div
+        id="nvbadmineventctrl"
+        style="
+          display: none;
+          margin-top: 50px;
+          padding: 30px;
+          background: white;
+          border-radius: 15px;
+          box-shadow: var(--shadow);
+        "
+      >
+        <h3 style="color: var(--primary)">Admin Dashboard Active</h3>
+        <button class="nvbbtn nvbbtnprimary" style="margin-top: 15px">
+          + ADD NEW CALENDAR EVENT
+        </button>
+      </div>
+    </main> -->
+
+    <script>
+      const hamburger = document.getElementById("nvbhamburger");
+      const closeIcon = document.getElementById("nvbcloseicon");
+      const mobileMenu = document.getElementById("nvbmobilemenu");
+      const modalWrapper = document.getElementById("nvbmodalwrapper");
+      const body = document.getElementById("nvbbody");
+
+      // Toggle Functions
+      const openMenu = () => {
+        mobileMenu.classList.add("nvbmobilemenuactive");
+        body.style.overflow = "hidden";
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.remove("nvbmobilemenuactive");
+        body.style.overflow = "auto";
+      };
+
+      hamburger.addEventListener("click", openMenu);
+      closeIcon.addEventListener("click", closeMenu);
+
+      // Scroll
+      window.addEventListener("scroll", () => {
+        const header = document.getElementById("nvbheader");
+        if (window.scrollY > 20) header.classList.add("nvbheaderscrolled");
+        else header.classList.remove("nvbheaderscrolled");
+      });
+
+      // Modal
+      const openModal = () => {
+        closeMenu();
+        modalWrapper.style.display = "flex";
+      };
+      const closeModal = () => (modalWrapper.style.display = "none");
+
+      document
+        .getElementById("nvbopenmodal")
+        .addEventListener("click", openModal);
+      document
+        .getElementById("nvbmobilelogin")
+        .addEventListener("click", openModal);
+      document
+        .getElementById("nvbmodalclose")
+        .addEventListener("click", closeModal);
+      window.addEventListener("click", (e) => {
+        if (e.target === modalWrapper) closeModal();
+      });
+
+      /**
+       * Connect this function to Firebase Authentication
+       */
+      const handleLogin = async () => {
+        const user = document.getElementById("nvbadminusername").value;
+        const pass = document.getElementById("nvbadminpassword").value;
+        if (user && pass) {
+          const btn = document.getElementById("nvbloginbtn");
+          btn.textContent = "AUTHENTICATING...";
+          setTimeout(() => {
+            body.classList.add("nvbadminmode");
+            document.getElementById("nvbadmineventctrl").style.display =
+              "block";
+            closeModal();
+            btn.textContent = "SIGN IN";
+            document.getElementById("nvbopenmodal").textContent = "LOGOUT";
+          }, 800);
+        }
+      };
+
+      document
+        .getElementById("nvbloginbtn")
+        .addEventListener("click", handleLogin);
+
+      // Close on Escape
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeModal();
+          closeMenu();
+        }
+      });
+    </script>
+  </body>
+</html>

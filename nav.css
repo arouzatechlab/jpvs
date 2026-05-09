@@ -1,0 +1,365 @@
+/* RESET & BASE STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --arzColorPrimary: #1e463b;
+  --arzColorPrimaryLight: #2e7d5b;
+  --arzColorTextMain: #344054;
+  --arzColorTextSecondary: #6b7280;
+  --arzColorBgLight: #f1f5f9;
+  --arzColorAccent: #f2b705;
+  --arzColorAccentLight: #ffd166;
+  --arzTransition: 0.3s ease;
+}
+
+body {
+  background-color: var(--arzColorBgLight);
+  overflow-x: hidden;
+}
+
+/* TOPBAR STYLES */
+.arzTopbar {
+  width: 100%;
+  height: 40px;
+  background-color: var(--arzColorPrimaryLight);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  position: relative;
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.arzTopbarLeft {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.arzScrollingTagline {
+  white-space: nowrap;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  animation: arzMarquee 30s linear infinite;
+}
+
+@keyframes arzMarquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.arzTopbarRight {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.arzSocialIcon {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+  transition: var(--arzTransition);
+  cursor: pointer;
+  display: block;
+}
+
+.arzSocialIcon:hover {
+  fill: var(--arzColorAccentLight);
+  transform: translateY(-2px);
+}
+
+/* NAVBAR STYLES */
+.arzNavbar {
+  width: 100%;
+  height: 120px;
+  background-color: var(--arzColorPrimary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: height var(--arzTransition);
+}
+
+.arzBrandContainer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+}
+
+.arzLogoContainer img {
+  height: 100px;
+  width: auto;
+  display: block;
+  transition: height var(--arzTransition);
+}
+
+.arzTrustName {
+  color: #ffffff;
+  max-width: 280px; /* Limits width to force professional wrapping */
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--arzTransition);
+}
+
+.arzTrustName .arzMainName {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--arzColorAccentLight);
+  text-transform: uppercase;
+}
+
+.arzTrustName .arzSubName {
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.9;
+  letter-spacing: 1px;
+}
+
+.arzNavLinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.arzNavLink {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--arzTransition);
+  white-space: nowrap;
+}
+
+.arzNavLink svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+}
+
+.arzNavLink:hover {
+  color: var(--arzColorAccentLight);
+}
+
+/* DONATION BUTTON */
+.arzDonationBtn {
+  position: relative;
+  background-color: var(--arzColorAccent);
+  color: var(--arzColorPrimary);
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.arzDonationBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--arzColorAccentLight);
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.arzDonationBtn:hover::before {
+  left: 0;
+}
+
+.arzDonationBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(242, 183, 5, 0.3);
+}
+
+/* MOBILE HAMBURGER */
+.arzHamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.arzHamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: #ffffff;
+  transition: var(--arzTransition);
+}
+
+/* FULLSCREEN MENU OVERLAY */
+.arzMenuOverlay {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--arzColorPrimary);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 10%;
+  transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.arzMenuOverlay.arzActive {
+  right: 0;
+}
+
+.arzMenuClose {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.arzMenuClose svg {
+  width: 40px;
+  height: 40px;
+}
+
+.arzMobileLogoSection {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.arzMobileLogoSection img {
+  height: 60px;
+  width: auto;
+}
+
+.arzMobileLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.arzMobileLink {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  transform: translateX(30px);
+  transition: 0.4s ease;
+}
+
+.arzMenuOverlay.arzActive .arzMobileLink {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger links animation */
+.arzMenuOverlay.arzActive .arzMobileLink:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.arzMenuOverlay.arzActive .arzMobileLink:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.arzMenuOverlay.arzActive .arzMobileLink:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.arzMenuOverlay.arzActive .arzMobileLink:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.arzMenuOverlay.arzActive .arzMobileLink:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.arzMenuOverlay.arzActive .arzMobileLink:nth-child(6) {
+  transition-delay: 0.6s;
+}
+.arzMenuOverlay.arzActive .arzMobileLink:nth-child(7) {
+  transition-delay: 0.7s;
+}
+
+.arzNoScroll {
+  overflow: hidden;
+}
+
+/* RESPONSIVE QUERIES */
+@media (max-width: 1200px) {
+  .arzTrustName {
+    max-width: 200px;
+  }
+  .arzTrustName .arzMainName {
+    font-size: 15px;
+  }
+  .arzTrustName .arzSubName {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .arzNavLinks {
+    display: none;
+  }
+  .arzHamburger {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .arzTopbar {
+    padding: 0 15px;
+  }
+  .arzTopbarRight {
+    display: none;
+  }
+  .arzNavbar {
+    height: 90px;
+    padding: 0 15px;
+  }
+  .arzLogoContainer img {
+    height: 60px;
+  }
+  .arzTrustName {
+    max-width: 160px;
+  }
+  .arzTrustName .arzMainName {
+    font-size: 14px;
+  }
+  .arzTrustName .arzSubName {
+    font-size: 10px;
+  }
+}

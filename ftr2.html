@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Premium School Footer</title>
+    <style>
+      :root {
+        --primary: #1e3a8a;
+        --primarydark: #172554;
+        --accent: #facc15;
+        --textdark: #1f2937;
+        --white: #ffffff;
+        --bglight: #f8fafc;
+        --mutedwhite: rgba(255, 255, 255, 0.7);
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Initial Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+
+      body {
+        background-color: var(--bglight);
+        color: var(--textdark);
+        line-height: 1.6;
+      }
+
+      /* --- PREMIUM FOOTER SYSTEM --- */
+      .ftrfooter {
+        background-color: var(--primarydark);
+        color: var(--white);
+        padding: clamp(60px, 8vw, 100px) 0 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ftrcontainer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .ftrgrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      /* Tablet Breakpoint (2 columns) */
+      @media (min-width: 768px) {
+        .ftrgrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* Desktop Breakpoint (4 columns) */
+      @media (min-width: 1024px) {
+        .ftrgrid {
+          grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+        }
+      }
+
+      /* Column 1: Brand */
+      .ftrbrandsection {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .ftrlogo {
+        height: 90px; /* Slightly taller for better visibility */
+        width: auto; /* Slightly wider */
+        /* White background ensures visibility on dark footer */
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        border-radius: 8px;
+        overflow: hidden;
+        padding: 8px; /* Internal padding so logo doesn't hit edges */
+        /* box-shadow: var(--shadow); */
+        cursor: pointer;
+      }
+
+      .ftrlogo img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain; /* Ensures entire logo is visible within dimensions */
+        display: block;
+      }
+
+      .ftrschoolname {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: var(--accent);
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+
+      .ftrdesc {
+        color: var(--mutedwhite);
+        font-size: 0.95rem;
+        max-width: 300px;
+        line-height: 1.7;
+      }
+
+      /* Column 2: Quick Links */
+      .ftrheading {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 25px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .ftrheading::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: var(--accent);
+      }
+
+      .ftrnavlist {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .ftrlink {
+        color: var(--mutedwhite);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: var(--transition);
+        display: inline-block;
+      }
+
+      .ftrlink:hover {
+        color: var(--accent);
+        transform: translateX(8px);
+      }
+
+      /* Column 3: Address */
+      .ftraddress {
+        font-style: normal;
+        color: var(--mutedwhite);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        font-size: 0.95rem;
+      }
+
+      .ftrcontactitem {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .ftrcontactitem strong {
+        color: var(--white);
+        font-weight: 600;
+        display: block;
+      }
+
+      /* Column 4: Map */
+      .ftrmapcontainer {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #2a3a5a;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .ftrmapframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* Social Section */
+      .ftrsocialrow {
+        padding-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+      }
+
+      @media (min-width: 768px) {
+        .ftrsocialrow {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+      .ftrsocialgroup {
+        display: flex;
+        gap: 12px;
+      }
+
+      .ftrsocialicon {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        text-decoration: none;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .ftrsocialicon svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+      }
+
+      .ftrsocialicon:hover {
+        background: var(--primary);
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .ftrcopyright {
+        font-size: 0.85rem;
+        color: var(--mutedwhite);
+      }
+
+      .ftraccent-text {
+        color: var(--accent);
+        font-weight: 600;
+      }
+      /* --- BACK TO TOP BUTTON --- */
+      .ftrbacktotop {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        width: 52px;
+        height: 52px;
+        border: none;
+        border-radius: 50%;
+        background: var(--accent);
+        color: var(--primarydark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        z-index: 9999;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: var(--transition);
+      }
+
+      .ftrbacktotop svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      .ftrbacktotop:hover {
+        background: var(--white);
+        transform: translateY(-6px);
+      }
+
+      .ftrbacktotop.ftractive {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* Desktop Enhancement */
+      @media (min-width: 1024px) {
+        .ftrbacktotop {
+          right: 35px;
+          bottom: 35px;
+          width: 58px;
+          height: 58px;
+        }
+
+        .ftrbacktotop svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <main
+      style="
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      "
+    >
+      <div>
+        <h1
+          style="
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+          "
+        >
+          Campus Portal
+        </h1>
+        <p style="color: #64748b; max-width: 600px">
+          The footer logo visibility has been fixed with a white container and
+          optimized padding.
+        </p>
+      </div>
+    </main> -->
+
+    <!-- PREMIUM FOOTER COMPONENT -->
+    <footer class="ftrfooter">
+      <div class="ftrcontainer">
+        <div class="ftrgrid">
+          <!-- Column 1: Brand Section -->
+          <section class="ftrbrandsection">
+            <div class="ftrlogo">
+              <!-- <img> height/width handled by parent .ftrlogo and object-fit -->
+              <img
+                src="./assets/erasebg-transformed.webp"
+                alt="Jnanapeeta Vidya Samste Logo"
+                onclick="window.location.href = './school.html'"
+              />
+            </div>
+            <h2 class="ftrschoolname">Jnanapeeta Vidya Samste</h2>
+            <p class="ftrdesc">
+              Nurturing young minds through holistic education and traditional
+              values. Empowering students for a brighter, global future since
+              1995.
+            </p>
+          </section>
+
+          <!-- Column 2: Quick Links -->
+          <section class="ftrlinkssection">
+            <h3 class="ftrheading">Quick Links</h3>
+            <nav class="ftrnav">
+              <ul class="ftrnavlist">
+                <li><a href="./school.html" class="ftrlink">HOME</a></li>
+                <li>
+                  <a href="./academics.html" class="ftrlink">ACADEMICS</a>
+                </li>
+                <li><a href="./gallerys.html" class="ftrlink">GALLERY</a></li>
+                <li><a href="./faculty.html" class="ftrlink">FACULTY</a></li>
+                <li>
+                  <a href="./admission.html" class="ftrlink">ADMISSION</a>
+                </li>
+              </ul>
+            </nav>
+          </section>
+
+          <!-- Column 3: Address Section -->
+          <section class="ftraddresssection">
+            <h3 class="ftrheading">Contact Us</h3>
+            <address class="ftraddress">
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Campus Address</strong>
+                  M M ROAD DUGGANAHALLI VILLAGE AND POST,<br />
+                  MALAVALLI TALUK MANDYA DISTRICT KIRAGAVALU HOBALI PIN CODE -
+                  571430
+                </div>
+              </div>
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Phone</strong>
+                  +91 73535 72599<br />
+                  +91 99803 11294
+                </div>
+              </div>
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Email</strong>
+                  jnanapeetavidyasamste@gmail.com
+                </div>
+              </div>
+            </address>
+          </section>
+
+          <!-- Column 4: Map Section -->
+          <section class="ftrmapsection">
+            <h3 class="ftrheading">Location</h3>
+            <div class="ftrmapcontainer">
+              <iframe
+                class="ftrMapframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4501.89930874704!2d76.9964373505319!3d12.412484234540736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf08a450bb9655%3A0x529b67261e1a741e!2sJNANAPEETA%20VIDYA%20SAMSTHE%20(JPVS)DUGGANAHALLI!5e0!3m2!1sen!2sin!4v1777523271236!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+              >
+              </iframe>
+            </div>
+          </section>
+        </div>
+
+        <!-- Social Row -->
+        <div class="ftrsocialrow">
+          <div class="ftrcopyright">
+            &copy; 2024
+            <span class="ftraccent-text">Jnanapeeta Vidya Samste</span>. All
+            Rights Reserved.Design & Developed by
+            <a
+              href="https://arouzatechlabs.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                text-decoration: none;
+                color: var(--accent);
+                font-weight: 600;
+              "
+              >AROUZA TECHLABS</a
+            >.
+          </div>
+          <div class="ftrsocialgroup">
+            <!-- Facebook -->
+            <a href="#" class="ftrsocialicon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="ftrsocialicon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <!-- Twitter (X) -->
+            <a href="#" class="ftrsocialicon" aria-label="Twitter">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" class="ftrsocialicon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- BACK TO TOP BUTTON -->
+    <button class="ftrbacktotop" id="ftrBackToTop" aria-label="Back To Top">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 4l-8 8 1.41 1.41L11 7.83V20h2V7.83l5.59 5.58L20 12z" />
+      </svg>
+    </button>
+
+    <script>
+      const ftrBackToTop = document.getElementById("ftrBackToTop");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          ftrBackToTop.classList.add("ftractive");
+        } else {
+          ftrBackToTop.classList.remove("ftractive");
+        }
+      });
+
+      ftrBackToTop.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
+  </body>
+</html>

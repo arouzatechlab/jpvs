@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trust Footer System</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- FOOTER DESIGN SYSTEM --- */
+      :root {
+        --ftrPrimary: #1e463b;
+        --ftrSecondary: #e6f2eb;
+        --ftrTextMuted: #6b7280;
+        --ftrAccent: #f2b705;
+        --ftrAccentHover: #ffd166;
+        --ftrWhite: #ffffff;
+        --ftrTransition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: #f9f9f9;
+      }
+
+      /* --- FOOTER MAIN --- */
+      .ftrFooter {
+        background-color: var(--ftrPrimary);
+        color: var(--ftrSecondary);
+        padding: 80px 0 40px;
+        width: 100%;
+        position: relative;
+        border-top: 5px solid var(--ftrAccent);
+      }
+
+      .ftrContainer {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .ftrGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      @media (min-width: 768px) {
+        .ftrGrid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .ftrGrid {
+          grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+          gap: 40px;
+        }
+      }
+
+      /* --- SECTION 1: LOGO & ABOUT --- */
+      .ftrSectionLogo .ftrLogoPlaceholder {
+        width: 180px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.1);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ftrWhite);
+        font-weight: bold;
+        border: 1px dashed rgba(255, 255, 255, 0.3);
+      }
+
+      .ftrTrustName {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        color: var(--ftrAccent);
+        margin-bottom: 12px;
+        line-height: 1.3;
+      }
+
+      .ftrDescription {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--ftrSecondary);
+        opacity: 0.8;
+      }
+
+      /* --- SECTION 2: QUICK LINKS --- */
+      .ftrTitle {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--ftrWhite);
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+      }
+
+      .ftrTitle::after {
+        content: "";
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--ftrAccent);
+      }
+
+      .ftrLinkList {
+        list-style: none;
+      }
+
+      .ftrLinkItem {
+        margin-bottom: 12px;
+      }
+
+      .ftrLinkItem a {
+        color: var(--ftrSecondary);
+        text-decoration: none;
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+        transition: var(--ftrTransition);
+      }
+
+      .ftrLinkItem a svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 8px;
+        fill: var(--ftrAccent);
+        transition: var(--ftrTransition);
+      }
+
+      .ftrLinkItem a:hover {
+        color: var(--ftrAccentHover);
+        padding-left: 8px;
+      }
+
+      /* --- SECTION 3: ADDRESS, MAP, QR --- */
+      .ftrAddressBlock {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        color: var(--ftrSecondary);
+      }
+
+      /* Layout Fix: Keeping Map and QR vertically stacked to avoid horizontal overlap */
+      .ftrLocationWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .ftrMapEmbed {
+        width: 100%;
+        height: 160px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .ftrQrCode {
+        width: 130px;
+        height: 130px;
+        background: var(--ftrWhite);
+        padding: 8px;
+        border: none;
+        display: block;
+        flex-shrink: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /* --- SECTION 4: SOCIAL --- */
+      .ftrSocialContainer {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .ftrSocialIcon {
+        width: 40px;
+        height: 40px;
+        background: var(--ftrWhite);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ftrPrimary);
+        text-decoration: none;
+        transition: var(--ftrTransition);
+      }
+
+      .ftrSocialIcon svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+      }
+
+      .ftrSocialIcon:hover {
+        background: var(--ftrAccent);
+        color: var(--ftrPrimary);
+        transform: translateY(-3px);
+      }
+
+      /* --- BACK TO TOP --- */
+      .ftrBackToTop {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: var(--ftrAccent);
+        color: var(--ftrPrimary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--ftrTransition);
+      }
+
+      .ftrBackToTop.ftrVisible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .ftrBackToTop:hover {
+        transform: scale(1.1) translateY(-5px);
+        background: var(--ftrAccentHover);
+      }
+
+      .ftrBackToTop svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+
+      /* --- COPYRIGHT --- */
+      .ftrCopyright {
+        margin-top: 60px;
+        padding-top: 25px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--ftrTextMuted);
+      }
+
+      /* --- FADE IN ANIMATION --- */
+      .ftrFadeIn {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.8s ease-out;
+      }
+
+      .ftrVisible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <footer class="ftrFooter">
+      <div class="ftrContainer">
+        <div class="ftrGrid ftrFadeIn" id="ftrMainGrid">
+          <!-- SECTION 1: ABOUT -->
+          <div class="ftrSectionLogo">
+            <div class="ftrLogoPlaceholder">LOGO</div>
+            <h3 class="ftrTrustName">
+              JNANA PEETA EDUCATIONAL AND CHARITABLE TRUST
+            </h3>
+            <p class="ftrDescription">
+              Empowering lives through education, healthcare, and rural
+              development. Dedicated to building a sustainable and equitable
+              future for all.
+            </p>
+          </div>
+
+          <!-- SECTION 2: LINKS -->
+          <nav class="ftrSectionLinks">
+            <h4 class="ftrTitle">Quick Links</h4>
+            <ul class="ftrLinkList">
+              <li class="ftrLinkItem">
+                <a href="#"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Home</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="#"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >About</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="#"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Contact</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="#"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Gallery</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="#"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Services</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="#"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >JPVS School</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="#"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Donation</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- SECTION 3: ADDRESS & MAP -->
+          <div class="ftrSectionLocation">
+            <h4 class="ftrTitle">Visit Us</h4>
+            <address class="ftrAddressBlock">
+              M M ROAD DUGGANAHALLI VILLAGE AND POST<br />
+              MALAVALLI TALUK MANDYA DISTRICT<br />
+              KIRAGAVALU HOBALI<br />
+              PIN CODE - 571430
+            </address>
+            <div class="ftrLocationWrapper">
+              <iframe
+                class="ftrMapEmbed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15582.435773663953!2d77.0142323!3d12.3756784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf697557a6e115%3A0x6a2c26210f92634e!2sMalavalli%2C%20Karnataka%20571430!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+              >
+              </iframe>
+              <img
+                class="ftrQrCode"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://jnanapeetatrust.org"
+                alt="Scan to visit website"
+              />
+            </div>
+          </div>
+
+          <!-- SECTION 4: SOCIALS -->
+          <div class="ftrSectionSocial">
+            <h4 class="ftrTitle">Follow Us</h4>
+            <p class="ftrDescription">
+              Stay updated with our latest activities and programs on social
+              media.
+            </p>
+            <div class="ftrSocialContainer">
+              <a href="#" class="ftrSocialIcon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14h-3v4.11h3V22h5V11.58h4.07l.2-4.12z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m4.4 3a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m5-2.5a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="Twitter">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="YouTube">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M21.58 7.19a3.02 3.02 0 0 0-2.12-2.13C17.59 4.5 12 4.5 12 4.5s-5.59 0-7.46.56a3.02 3.02 0 0 0-2.12 2.13C2 9.06 2 12 2 12s0 2.94.42 4.81a3.02 3.02 0 0 0 2.12 2.13c1.87.56 7.46.56 7.46.56s5.59 0 7.46-.56a3.02 3.02 0 0 0 2.12-2.13C22 14.94 22 12 22 12s0-2.94-.42-4.81zM9.54 15.56V8.44L15.81 12l-6.27 3.56z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ftrCopyright">
+          &copy; <span id="ftrYear"></span> JNANA PEETA EDUCATIONAL AND
+          CHARITABLE TRUST. All Rights Reserved.
+        </div>
+      </div>
+
+      <button class="ftrBackToTop" id="ftrBackToTop" title="Back to top">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+      </button>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("ftrYear").textContent =
+          new Date().getFullYear();
+        const bttBtn = document.getElementById("ftrBackToTop");
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            bttBtn.classList.add("ftrVisible");
+          } else {
+            bttBtn.classList.remove("ftrVisible");
+          }
+        });
+        bttBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("ftrVisible");
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+        const grid = document.getElementById("ftrMainGrid");
+        if (grid) observer.observe(grid);
+      });
+    </script>
+  </body>
+</html>

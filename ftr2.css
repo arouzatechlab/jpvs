@@ -1,0 +1,304 @@
+:root {
+  --primary: #1e3a8a;
+  --primarydark: #172554;
+  --accent: #facc15;
+  --textdark: #1f2937;
+  --white: #ffffff;
+  --bglight: #f8fafc;
+  --mutedwhite: rgba(255, 255, 255, 0.7);
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Initial Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+body {
+  background-color: var(--bglight);
+  color: var(--textdark);
+  line-height: 1.6;
+}
+
+/* --- PREMIUM FOOTER SYSTEM --- */
+.ftrfooter {
+  background-color: var(--primarydark);
+  color: var(--white);
+  padding: clamp(60px, 8vw, 100px) 0 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ftrcontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ftrgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* Tablet Breakpoint (2 columns) */
+@media (min-width: 768px) {
+  .ftrgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop Breakpoint (4 columns) */
+@media (min-width: 1024px) {
+  .ftrgrid {
+    grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+  }
+}
+
+/* Column 1: Brand */
+.ftrbrandsection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ftrlogo {
+  height: 90px; /* Slightly taller for better visibility */
+  width: auto; /* Slightly wider */
+  /* White background ensures visibility on dark footer */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 8px; /* Internal padding so logo doesn't hit edges */
+  /* box-shadow: var(--shadow); */
+  cursor: pointer;
+}
+
+.ftrlogo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Ensures entire logo is visible within dimensions */
+  display: block;
+}
+
+.ftrschoolname {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.ftrdesc {
+  color: var(--mutedwhite);
+  font-size: 0.95rem;
+  max-width: 300px;
+  line-height: 1.7;
+}
+
+/* Column 2: Quick Links */
+.ftrheading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.ftrheading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.ftrnavlist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ftrlink {
+  color: var(--mutedwhite);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.ftrlink:hover {
+  color: var(--accent);
+  transform: translateX(8px);
+}
+
+/* Column 3: Address */
+.ftraddress {
+  font-style: normal;
+  color: var(--mutedwhite);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 0.95rem;
+}
+
+.ftrcontactitem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ftrcontactitem strong {
+  color: var(--white);
+  font-weight: 600;
+  display: block;
+}
+
+/* Column 4: Map */
+.ftrmapcontainer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #2a3a5a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ftrmapframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Social Section */
+.ftrsocialrow {
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+@media (min-width: 768px) {
+  .ftrsocialrow {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.ftrsocialgroup {
+  display: flex;
+  gap: 12px;
+}
+
+.ftrsocialicon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ftrsocialicon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.ftrsocialicon:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ftrcopyright {
+  font-size: 0.85rem;
+  color: var(--mutedwhite);
+}
+
+.ftraccent-text {
+  color: var(--accent);
+  font-weight: 600;
+}
+/* --- BACK TO TOP BUTTON --- */
+.ftrbacktotop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--primarydark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition);
+}
+
+.ftrbacktotop svg {
+  width: 22px;
+  height: 22px;
+}
+
+.ftrbacktotop:hover {
+  background: var(--white);
+  transform: translateY(-6px);
+}
+
+.ftrbacktotop.ftractive {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Desktop Enhancement */
+@media (min-width: 1024px) {
+  .ftrbacktotop {
+    right: 35px;
+    bottom: 35px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .ftrbacktotop svg {
+    width: 24px;
+    height: 24px;
+  }
+}

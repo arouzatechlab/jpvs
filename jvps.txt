@@ -1,0 +1,24 @@
+NAVBAR-
+
+LOGO,HOME,ABOUT,CONTACT,GALLERY,SERVICES,JPVS SCHOOL,DONATION
+
+
+JVPS SCHOOL-NAVBAR-LOGO,HOME,ACADEMICS,GALLERY,ADMISSIONS,ADMIN PORTAL
+
+
+
+jnanapeetaeducharitabletrust@gmail.com
+
+jnanapeetavidyasamste@gmail.com
+-----------------------------------------------------------------------------------------------------
+TRUST OFFICE ADRESS
+PH NUMBER
+SERVICES LIST
+LOGO IMAGE
+STARTED TRUST HISTORY,VISION,MISSION
+DONATION BUTTON(OPTIONAL)
+NO.OF TRUSTIES
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4501.89930874704!2d76.9964373505319!3d12.412484234540736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf08a450bb9655%3A0x529b67261e1a741e!2sJNANAPEETA%20VIDYA%20SAMSTHE%20(JPVS)DUGGANAHALLI!5e0!3m2!1sen!2sin!4v1777523271236!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4501.89930874704!2d76.9964373505319!3d12.412484234540736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf08a450bb9655%3A0x529b67261e1a741e!2sJNANAPEETA%20VIDYA%20SAMSTHE%20(JPVS)DUGGANAHALLI!5e0!3m2!1sen!2sin!4v1777523271236!5m2!1sen!2sin

@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>School Admission Process | Vidya Vihar International School</title>
+    <meta
+      name="description"
+      content="Apply for school admission, check eligibility, documents required, and fill enquiry form online. Join Vidya Vihar International School."
+    />
+    <link rel="stylesheet" href="./ftr2.css" />
+    <link rel="stylesheet" href="./nav2.css" />
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --primary: #1e3a8a;
+        --primary-dark: #172554;
+        --accent: #facc15;
+        --text-dark: #1f2937;
+        --text-muted: #4b5563;
+        --white: #ffffff;
+        --bg-light: #f8fafc;
+        --shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden; /* Prevent horizontal scroll */
+        font-family: "Poppins", sans-serif;
+        line-height: 1.5;
+        color: var(--text-dark);
+        background-color: var(--white);
+      }
+
+      /* --- REUSABLE COMPONENTS --- */
+      .container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 16px; /* Optimized mobile padding */
+      }
+
+      section {
+        padding: 40px 0;
+      }
+
+      .section-title-wrapper {
+        margin-bottom: 24px;
+      }
+
+      .section-title {
+        font-size: 1.4rem; /* Scaled for mobile */
+        font-weight: 700;
+        color: var(--primary);
+        text-transform: uppercase;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 8px;
+        word-wrap: break-word;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent);
+        border-radius: 2px;
+      }
+
+      .card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: var(--shadow);
+        width: 100%;
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        position: relative;
+        height: 50vh;
+        min-height: 280px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-image: url("https://images.unsplash.com/photo-1541339907198-e08759dfc3ef?auto=format&fit=crop&q=80&w=1200");
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(30, 58, 138, 0.8),
+          rgba(23, 37, 84, 0.85)
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 0 16px;
+        width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+      }
+
+      .hero p {
+        /* font-size: 1rem; */
+        opacity: 0.95;
+        border-top: 3px solid var(--accent);
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        font-weight: 400;
+        border-top: 3px solid var(--accent);
+        display: inline-block;
+        padding-top: 10px;
+        max-width: 600px;
+      }
+
+      /* --- ADMISSIONS GUIDELINES --- */
+      .guidelines-section {
+        background-color: var(--bg-light);
+      }
+
+      .guideline-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .diamond-icon {
+        flex-shrink: 0;
+        width: 12px;
+        height: 12px;
+        background-color: var(--accent);
+        border: 2px solid #ef4444;
+        transform: rotate(45deg);
+        margin-top: 5px;
+      }
+
+      .guideline-text {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* --- DOCUMENTS SECTION --- */
+      .docs-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .doc-card {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: var(--white);
+        padding: 12px 16px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        transition: var(--transition);
+      }
+
+      .doc-icon-box {
+        width: 40px;
+        height: 40px;
+        background-color: #f1f5f9;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .doc-icon-box svg {
+        width: 18px;
+        height: 18px;
+        fill: var(--primary);
+      }
+
+      .doc-text {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--text-dark);
+        flex: 1;
+      }
+
+      /* --- FORM SECTION --- */
+      .form-section {
+        background-color: var(--bg-light);
+      }
+
+      .enquiry-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .form-group label {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      .form-group label span {
+        color: #ef4444;
+      }
+
+      .input-field,
+      .select-field,
+      .textarea-field {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: var(--text-dark);
+        background-color: var(--white);
+        appearance: none; /* Reset for mobile Safari */
+      }
+
+      /* Fix for iOS date/select appearance */
+      .select-field {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 16px;
+        padding-right: 40px;
+      }
+
+      .radio-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        padding: 5px 0;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+      }
+
+      .full-width {
+        grid-column: 1 / -1;
+      }
+
+      .submit-btn {
+        background-color: var(--primary);
+        color: var(--white);
+        border: none;
+        padding: 14px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-radius: 8px;
+        cursor: pointer;
+        width: 100%;
+        transition: var(--transition);
+      }
+
+      /* --- DESKTOP OPTIMIZATIONS --- */
+      @media (min-width: 768px) {
+        section {
+          padding: 60px 0;
+        }
+        .section-title {
+          font-size: 2.1rem;
+        }
+
+        .hero {
+          height: 60vh;
+        }
+        .hero h1 {
+          font-size: 4rem;
+        }
+
+        .enquiry-form {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 24px;
+        }
+
+        .docs-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .submit-btn {
+          width: auto;
+          padding: 14px 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nvbheader" id="nvbheader">
+      <div class="nvbcontainer">
+        <div class="nvbleft">
+          <div class="nvblogo">
+            <a href="./home.html">
+              <img src="./assets/erasebg-transformed.webp" alt="School Logo"
+            /></a>
+
+            <div class="nvbbrandtext">
+              <span class="nvblineone">JNANAPEETA</span>
+              <span class="nvblinetwo">VIDYA SAMSTE</span>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nvbnav">
+          <ul class="nvblist">
+            <li><a href="./home.html" class="nvblink">HOME</a></li>
+            <li><a href="./academics.html" class="nvblink">ACADEMICS</a></li>
+            <li><a href="./gallerys.html" class="nvblink">GALLERY</a></li>
+            <li><a href="./faculty.html" class="nvblink">FACULTY</a></li>
+            <li><a href="./events.html" class="nvblink">EVENTS CALENDAR</a></li>
+            <li><a href="./admission.html" class="nvblink">ADMISSION</a></li>
+          </ul>
+        </nav>
+
+        <div class="nvbright">
+          <button
+            class="nvbbtn nvbbtnprimary nvbdesktoplogin"
+            id="nvbopenmodal"
+          >
+            ADMIN LOGIN
+          </button>
+          <button class="nvbhamburger" id="nvbhamburger" aria-label="Open Menu">
+            <span class="nvbbar nvbbar1"></span>
+            <span class="nvbbar nvbbar2"></span>
+            <span class="nvbbar nvbbar3"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nvbmobilemenu" id="nvbmobilemenu">
+      <div class="nvbcloseicon" id="nvbcloseicon" aria-label="Close Menu">
+        <span class="nvbcrossbar nvbcrossbar1"></span>
+        <span class="nvbcrossbar nvbcrossbar2"></span>
+      </div>
+
+      <ul class="nvbmobilelist">
+        <li class="nvbmobileitem">
+          <a href="./home.html" class="nvbmobilelink">HOME</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./academics.html" class="nvbmobilelink">ACADEMICS</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./gallerys.html" class="nvbmobilelink">GALLERY</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./faculty.html" class="nvbmobilelink">FACULTY</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./events.html" class="nvbmobilelink">EVENTS CALENDAR</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./admission.html" class="nvbmobilelink">ADMISSION</a>
+        </li>
+        <li class="nvbmobileitem">
+          <button
+            class="nvbbtn nvbbtnprimary nvbmobileloginbtn"
+            id="nvbmobilelogin"
+          >
+            ADMIN LOGIN
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="nvbmodalwrapper" id="nvbmodalwrapper">
+      <div class="nvbmodal">
+        <button class="nvbmodalclose" id="nvbmodalclose">&times;</button>
+        <h2 style="text-align: center; color: var(--primary)">Admin Login</h2>
+        <p
+          style="
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin: 10px 0 25px;
+          "
+        >
+          Enter credentials to manage the platform.
+        </p>
+
+        <div style="margin-bottom: 15px">
+          <label style="font-size: 0.75rem; font-weight: 800">USERNAME</label>
+          <input
+            type="text"
+            id="nvbadminusername"
+            class="nvbinput"
+            placeholder="Admin username"
+          />
+        </div>
+        <div style="margin-bottom: 25px">
+          <label style="font-size: 0.75rem; font-weight: 800">PASSWORD</label>
+          <input
+            type="password"
+            id="nvbadminpassword"
+            class="nvbinput"
+            placeholder="••••••••"
+          />
+        </div>
+        <button
+          class="nvbbtn nvbbtnprimary"
+          id="nvbloginbtn"
+          style="width: 100%; height: 55px"
+        >
+          SIGN IN
+        </button>
+      </div>
+    </div>
+    <header class="hero">
+      <div class="hero-content">
+        <h1>ADMISSIONS</h1>
+        <p>Join JNANAPEETA VIDYA SAMSTE</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- GUIDELINES -->
+      <section class="guidelines-section">
+        <div class="container">
+          <div class="section-title-wrapper">
+            <h2 class="section-title">Admissions Guidelines</h2>
+          </div>
+          <div class="card">
+            <div class="guideline-item">
+              <div class="diamond-icon"></div>
+              <p class="guideline-text">
+                Every parent shall visit and fill the enquiry form first.
+                Parents are advised not to fill more than one enquiry form for
+                one applicant.
+              </p>
+            </div>
+            <div class="guideline-item">
+              <div class="diamond-icon"></div>
+              <p class="guideline-text">
+                Admission is on First Come First Serve Basis.
+              </p>
+            </div>
+            <div class="guideline-item">
+              <div class="diamond-icon"></div>
+              <p class="guideline-text">
+                Admission to Grades Pre KG and KG through formal interaction.
+              </p>
+            </div>
+            <div class="guideline-item">
+              <div class="diamond-icon"></div>
+              <p class="guideline-text">
+                Admission to Grades I and above based on written test.
+              </p>
+            </div>
+            <div class="guideline-item">
+              <div class="diamond-icon"></div>
+              <p class="guideline-text">
+                Final decision of admission will be of the School based on the
+                Test/Interaction.
+              </p>
+            </div>
+            <div class="guideline-item">
+              <div class="diamond-icon"></div>
+              <p class="guideline-text">
+                Registration charges are non-refundable & need to be paid ONE
+                time only.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCUMENTS -->
+      <section class="docs-section">
+        <div class="container">
+          <div class="section-title-wrapper">
+            <h2 class="section-title">Documents Required</h2>
+          </div>
+          <div class="docs-grid">
+            <div class="doc-card">
+              <div class="doc-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 7V3.5L18.5 9H13z"
+                  />
+                </svg>
+              </div>
+              <span class="doc-text">Birth Certificate of the child.</span>
+            </div>
+            <div class="doc-card">
+              <div class="doc-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                  />
+                </svg>
+              </div>
+              <span class="doc-text"
+                >Residence Address Proof (Aadhar/Passport).</span
+              >
+            </div>
+            <div class="doc-card">
+              <div class="doc-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M21 7h-2V5c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v2H3c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2z"
+                  />
+                </svg>
+              </div>
+              <span class="doc-text">Aadhar Card (Child & Parents).</span>
+            </div>
+            <div class="doc-card">
+              <div class="doc-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+                </svg>
+              </div>
+              <span class="doc-text">School Leaving Certificate.</span>
+            </div>
+            <div class="doc-card">
+              <div class="doc-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"
+                  />
+                </svg>
+              </div>
+              <span class="doc-text">6 Passport size photographs.</span>
+            </div>
+            <div class="doc-card">
+              <div class="doc-icon-box">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3"
+                  />
+                </svg>
+              </div>
+              <span class="doc-text">Blood group report.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <section class="form-section">
+        <div class="container">
+          <div class="section-title-wrapper">
+            <h2 class="section-title">Admission Enquiry Form</h2>
+          </div>
+          <div class="card">
+            <form
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              class="enquiry-form"
+            >
+              <div class="form-group">
+                <label>Student Name <span>*</span></label>
+                <input
+                  type="text"
+                  name="student_name"
+                  class="input-field"
+                  placeholder="Full Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Target Class <span>*</span></label>
+                <select name="admission_class" class="select-field" required>
+                  <option value="" disabled selected>Select Class</option>
+                  <option>Pre-KG</option>
+                  <option>KG</option>
+                  <option>Grade 1</option>
+                  <option>Grade 2</option>
+                  <option>Grade 3</option>
+                  <option>Grade 4</option>
+                  <option>Grade 5</option>
+                  <option>Grade 6</option>
+                  <option>Grade 7</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Date of Birth <span>*</span></label>
+                <input type="date" name="dob" class="input-field" required />
+              </div>
+              <div class="form-group">
+                <label>Gender <span>*</span></label>
+                <div class="radio-group">
+                  <label class="radio-option"
+                    ><input type="radio" name="gender" value="Male" required />
+                    Male</label
+                  >
+                  <label class="radio-option"
+                    ><input type="radio" name="gender" value="Female" />
+                    Female</label
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Father's Name <span>*</span></label>
+                <input
+                  type="text"
+                  name="father_name"
+                  class="input-field"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Contact Number <span>*</span></label>
+                <input type="tel" name="contact" class="input-field" required />
+              </div>
+              <div class="form-group full-width">
+                <label>Address <span>*</span></label>
+                <textarea
+                  name="address"
+                  class="textarea-field"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="full-width">
+                <button type="submit" class="submit-btn">Submit Enquiry</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="ftrfooter">
+      <div class="ftrcontainer">
+        <div class="ftrgrid">
+          <!-- Column 1: Brand Section -->
+          <section class="ftrbrandsection">
+            <div class="ftrlogo">
+              <!-- <img> height/width handled by parent .ftrlogo and object-fit -->
+              <img
+                src="./assets/erasebg-transformed.webp"
+                alt="Jnanapeeta Vidya Samste Logo"
+                onclick="window.location.href = './home.html'"
+              />
+            </div>
+            <h2 class="ftrschoolname">Jnanapeeta Vidya Samste</h2>
+            <p class="ftrdesc">
+              Nurturing young minds through holistic education and traditional
+              values. Empowering students for a brighter, global future since
+              1995.
+            </p>
+          </section>
+
+          <!-- Column 2: Quick Links -->
+          <section class="ftrlinkssection">
+            <h3 class="ftrheading">Quick Links</h3>
+            <nav class="ftrnav">
+              <ul class="ftrnavlist">
+                <li><a href="./home.html" class="ftrlink">HOME</a></li>
+                <li>
+                  <a href="./academics.html" class="ftrlink">ACADEMICS</a>
+                </li>
+                <li><a href="./gallerys.html" class="ftrlink">GALLERY</a></li>
+                <li><a href="./faculty.html" class="ftrlink">FACULTY</a></li>
+                <li>
+                  <a href="./admission.html" class="ftrlink">ADMISSION</a>
+                </li>
+              </ul>
+            </nav>
+          </section>
+
+          <!-- Column 3: Address Section -->
+          <section class="ftraddresssection">
+            <h3 class="ftrheading">Contact Us</h3>
+            <address class="ftraddress">
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Campus Address</strong>
+                  #123, Scholars Lane, Vidya Nagar,<br />
+                  Bangalore, Karnataka - 560001
+                </div>
+              </div>
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Phone</strong>
+                  +91 80 2345 6789<br />
+                  +91 98765 43210
+                </div>
+              </div>
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Email</strong>
+                  info@jnanapeeta.edu.in
+                </div>
+              </div>
+            </address>
+          </section>
+
+          <!-- Column 4: Map Section -->
+          <section class="ftrmapsection">
+            <h3 class="ftrheading">Location</h3>
+            <div class="ftrmapcontainer">
+              <iframe
+                class="ftrmapframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896.566827310653!2d77.00013177411121!3d12.41190632690392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf08a450bb9655%3A0x529b67261e1a741e!2sJNANAPEETA%20VIDYA%20SAMSTHE%20(JPVS)DUGGANAHALLI!5e0!3m2!1sen!2sin!4v1778065613750!5m2!1sen!2sin"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </section>
+        </div>
+
+        <!-- Social Row -->
+        <div class="ftrsocialrow">
+          <div class="ftrcopyright">
+            &copy; 2024
+            <span class="ftraccent-text">Jnanapeeta Vidya Samste</span>. All
+            Rights Reserved.Design & Developed by
+            <a
+              href="https://arouzatechlabs.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                text-decoration: none;
+                color: var(--accent);
+                font-weight: 600;
+              "
+              >AROUZA TECHLABS</a
+            >.
+          </div>
+          <div class="ftrsocialgroup">
+            <!-- Facebook -->
+            <a href="#" class="ftrsocialicon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="ftrsocialicon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <!-- Twitter (X) -->
+            <a href="#" class="ftrsocialicon" aria-label="Twitter">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" class="ftrsocialicon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+  </body>
+</html>

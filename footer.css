@@ -1,0 +1,272 @@
+/* --- FOOTER DESIGN SYSTEM --- */
+:root {
+  --ftrPrimary: #1e463b;
+  --ftrSecondary: #e6f2eb;
+  --ftrTextMuted: #6b7280;
+  --ftrAccent: #f2b705;
+  --ftrAccentHover: #ffd166;
+  --ftrWhite: #ffffff;
+  --ftrTransition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  /* Mock content to enable scrolling for Back-to-Top testing */
+  min-height: 200vh;
+  background-color: #f9f9f9;
+}
+
+/* --- FOOTER MAIN --- */
+.ftrFooter {
+  background-color: var(--ftrPrimary);
+  color: var(--ftrSecondary);
+  padding: 80px 0 40px;
+  width: 100%;
+  position: relative;
+  border-top: 5px solid var(--ftrAccent);
+}
+
+.ftrContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ftrGrid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile-first */
+  gap: 60px; /* Increased gap for better breathing room on mobile */
+}
+
+@media (min-width: 768px) {
+  .ftrGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ftrGrid {
+    grid-template-columns: 1.5fr 1fr 1.5fr 1fr;
+    gap: 30px;
+  }
+}
+
+/* --- SECTION 1: LOGO & ABOUT --- */
+.ftrSectionLogo .ftrLogoPlaceholder,
+img {
+  width: auto;
+  height: 100px;
+  /* background: rgba(255, 255, 255, 0.1); */
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: var(--ftrWhite);
+  font-weight: bold;
+  cursor: pointer;
+  /* border: 1px dashed rgba(255, 255, 255, 0.3); */
+}
+
+.ftrTrustName {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: var(--ftrAccent);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.ftrDescription {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ftrSecondary);
+  opacity: 0.8;
+}
+
+/* --- SECTION 2: QUICK LINKS --- */
+.ftrTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ftrWhite);
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.ftrTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--ftrAccent);
+}
+
+.ftrLinkList {
+  list-style: none;
+}
+
+.ftrLinkItem {
+  margin-bottom: 12px;
+}
+
+.ftrLinkItem a {
+  color: var(--ftrSecondary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  transition: var(--ftrTransition);
+}
+
+.ftrLinkItem a svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  fill: var(--ftrAccent);
+  transition: var(--ftrTransition);
+}
+
+.ftrLinkItem a:hover {
+  color: var(--ftrAccentHover);
+  padding-left: 8px;
+}
+
+/* --- SECTION 3: ADDRESS, MAP, QR --- */
+.ftrAddressBlock {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: var(--ftrSecondary);
+}
+
+.ftrLocationWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px; /* Added margin to separate from next section if stacked */
+}
+
+@media (min-width: 1024px) {
+  .ftrLocationWrapper {
+    flex-direction: row;
+    margin-bottom: 0;
+  }
+}
+
+.ftrMapEmbed {
+  width: 100%;
+  height: 150px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.ftrQrCode {
+  width: 120px;
+  height: 120px;
+  background: var(--ftrWhite);
+  padding: 5px;
+  border: none;
+  display: block;
+  margin-top: 28px; /* Added margin for better spacing on mobile */
+  flex-shrink: 0; /* Prevents QR from shrinking */
+}
+
+/* --- SECTION 4: SOCIAL --- */
+.ftrSocialContainer {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.ftrSocialIcon {
+  width: 40px;
+  height: 40px;
+  background: var(--ftrWhite);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ftrPrimary);
+  text-decoration: none;
+  transition: var(--ftrTransition);
+}
+
+.ftrSocialIcon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.ftrSocialIcon:hover {
+  background: var(--ftrAccent);
+  color: var(--ftrPrimary);
+  transform: translateY(-3px);
+}
+
+/* --- BACK TO TOP --- */
+.ftrBackToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--ftrAccent);
+  color: var(--ftrPrimary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--ftrTransition);
+}
+
+.ftrBackToTop.ftrVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ftrBackToTop:hover {
+  transform: scale(1.1) translateY(-5px);
+  background: var(--ftrAccentHover);
+}
+
+.ftrBackToTop svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* --- COPYRIGHT --- */
+.ftrCopyright {
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ftrTextMuted);
+}
+
+/* --- FADE IN ANIMATION --- */
+.ftrFadeIn {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s ease-out;
+}
+
+.ftrVisible {
+  opacity: 1;
+  transform: translateY(0);
+}

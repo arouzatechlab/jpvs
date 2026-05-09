@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>
+      School Gallery & Videos | Campus Life | Vidya Vihar International School
+    </title>
+    <meta
+      name="description"
+      content="Explore our school gallery and videos showcasing events, student activities, and campus life at Vidya Vihar International School."
+    />
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./ftr2.css" />
+    <link rel="stylesheet" href="./nav2.css" />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --primary: #1e3a8a;
+        --primary-dark: #172554;
+        --accent: #facc15;
+        --text-dark: #1f2937;
+        --white: #ffffff;
+        --bg-light: #f8fafc;
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        scroll-behavior: smooth;
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        position: relative;
+        height: 50vh;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-image: url("https://images.unsplash.com/photo-1523050335392-9bef867a4975?auto=format&fit=crop&q=80&w=1200");
+        background-size: cover;
+        background-position: center;
+        color: var(--white);
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(30, 58, 138, 0.8),
+          rgba(23, 37, 84, 0.95)
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        /* font-size: 1.2rem;
+        font-weight: 400;
+        opacity: 0.9; */
+        opacity: 0.95;
+        border-top: 3px solid var(--accent);
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        font-weight: 400;
+        border-top: 3px solid var(--accent);
+        display: inline-block;
+        padding-top: 10px;
+        max-width: 600px;
+      }
+
+      /* --- GALLERY SECTION --- */
+      .gallery-container {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 60px 20px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 140px;
+        grid-auto-flow: dense;
+        gap: 12px;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        background-color: #e5e7eb;
+        cursor: pointer;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      }
+
+      .gallery-item img,
+      .gallery-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: var(--transition);
+      }
+
+      /* Overlay for items */
+      .item-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.4) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: var(--transition);
+        display: flex;
+        align-items: flex-end;
+        padding: 20px;
+        z-index: 2;
+      }
+
+      .item-caption {
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transform: translateY(10px);
+        transition: var(--transition);
+      }
+
+      /* Play Button Overlay */
+      .play-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 54px;
+        height: 54px;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(8px);
+        border: 2px solid var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3;
+        pointer-events: none;
+        transition: var(--transition);
+      }
+
+      .play-overlay i {
+        color: var(--accent);
+        font-size: 1.3rem;
+        margin-left: 4px;
+      }
+
+      /* Hover Effects */
+      .gallery-item:hover img,
+      .gallery-item:hover video {
+        transform: scale(1.1);
+      }
+
+      .gallery-item:hover .item-overlay {
+        opacity: 1;
+      }
+
+      .gallery-item:hover .item-caption {
+        transform: translateY(0);
+      }
+
+      .gallery-item:hover .play-overlay {
+        background: var(--accent);
+        border-color: var(--accent);
+        transform: translate(-50%, -50%) scale(1.15);
+        box-shadow: 0 0 20px rgba(250, 204, 21, 0.4);
+      }
+
+      .gallery-item:hover .play-overlay i {
+        color: var(--primary-dark);
+      }
+
+      /* Spacing Logic - Professional Masonry */
+      .span-v {
+        grid-row: span 2;
+      }
+      .span-h {
+        grid-column: span 2;
+      }
+      .span-lg {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+
+      /* --- LIGHTBOX STYLES --- */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 15, 30, 0.98);
+        z-index: 2000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .lightbox.active {
+        display: flex;
+        opacity: 1;
+      }
+
+      .lightbox-content {
+        width: 95%;
+        max-width: 1000px;
+        max-height: 85vh;
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      .lightbox-content img,
+      .lightbox-content video {
+        max-width: 100%;
+        max-height: 85vh;
+        border-radius: 12px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        object-fit: contain;
+      }
+
+      .close-lightbox {
+        position: absolute;
+        top: -60px;
+        right: 0;
+        color: var(--white);
+        font-size: 2.5rem;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .close-lightbox:hover {
+        color: var(--accent);
+        transform: rotate(90deg);
+      }
+
+      /* --- RESPONSIVENESS --- */
+      @media (min-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(4, 1fr);
+          grid-auto-rows: 180px;
+          gap: 16px;
+        }
+        .hero h1 {
+          font-size: 4.5rem;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .gallery-grid {
+          grid-template-columns: repeat(6, 1fr);
+          grid-auto-rows: 180px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .span-lg,
+        .span-h {
+          grid-column: span 2;
+        }
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nvbheader" id="nvbheader">
+      <div class="nvbcontainer">
+        <div class="nvbleft">
+          <div class="nvblogo">
+            <a href="./home.html">
+              <img src="./assets/erasebg-transformed.webp" alt="School Logo"
+            /></a>
+
+            <div class="nvbbrandtext">
+              <span class="nvblineone">JNANAPEETA</span>
+              <span class="nvblinetwo">VIDYA SAMSTE</span>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nvbnav">
+          <ul class="nvblist">
+            <li><a href="./home.html" class="nvblink">HOME</a></li>
+            <li><a href="./academics.html" class="nvblink">ACADEMICS</a></li>
+            <li><a href="./gallerys.html" class="nvblink">GALLERY</a></li>
+            <li><a href="./faculty.html" class="nvblink">FACULTY</a></li>
+            <li><a href="./events.html" class="nvblink">EVENTS CALENDAR</a></li>
+            <li><a href="./admission.html" class="nvblink">ADMISSION</a></li>
+          </ul>
+        </nav>
+
+        <div class="nvbright">
+          <button
+            class="nvbbtn nvbbtnprimary nvbdesktoplogin"
+            id="nvbopenmodal"
+          >
+            ADMIN LOGIN
+          </button>
+          <button class="nvbhamburger" id="nvbhamburger" aria-label="Open Menu">
+            <span class="nvbbar nvbbar1"></span>
+            <span class="nvbbar nvbbar2"></span>
+            <span class="nvbbar nvbbar3"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nvbmobilemenu" id="nvbmobilemenu">
+      <div class="nvbcloseicon" id="nvbcloseicon" aria-label="Close Menu">
+        <span class="nvbcrossbar nvbcrossbar1"></span>
+        <span class="nvbcrossbar nvbcrossbar2"></span>
+      </div>
+
+      <ul class="nvbmobilelist">
+        <li class="nvbmobileitem">
+          <a href="./home.html" class="nvbmobilelink">HOME</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./academics.html" class="nvbmobilelink">ACADEMICS</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./gallerys.html" class="nvbmobilelink">GALLERY</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./faculty.html" class="nvbmobilelink">FACULTY</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./events.html" class="nvbmobilelink">EVENTS CALENDAR</a>
+        </li>
+        <li class="nvbmobileitem">
+          <a href="./admission.html" class="nvbmobilelink">ADMISSION</a>
+        </li>
+        <li class="nvbmobileitem">
+          <button
+            class="nvbbtn nvbbtnprimary nvbmobileloginbtn"
+            id="nvbmobilelogin"
+          >
+            ADMIN LOGIN
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="nvbmodalwrapper" id="nvbmodalwrapper">
+      <div class="nvbmodal">
+        <button class="nvbmodalclose" id="nvbmodalclose">&times;</button>
+        <h2 style="text-align: center; color: var(--primary)">Admin Login</h2>
+        <p
+          style="
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin: 10px 0 25px;
+          "
+        >
+          Enter credentials to manage the platform.
+        </p>
+
+        <div style="margin-bottom: 15px">
+          <label style="font-size: 0.75rem; font-weight: 800">USERNAME</label>
+          <input
+            type="text"
+            id="nvbadminusername"
+            class="nvbinput"
+            placeholder="Admin username"
+          />
+        </div>
+        <div style="margin-bottom: 25px">
+          <label style="font-size: 0.75rem; font-weight: 800">PASSWORD</label>
+          <input
+            type="password"
+            id="nvbadminpassword"
+            class="nvbinput"
+            placeholder="••••••••"
+          />
+        </div>
+        <button
+          class="nvbbtn nvbbtnprimary"
+          id="nvbloginbtn"
+          style="width: 100%; height: 55px"
+        >
+          SIGN IN
+        </button>
+      </div>
+    </div>
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Campus Life</h1>
+        <p>Capturing the essence of excellence and joy</p>
+      </div>
+    </header>
+
+    <main class="gallery-container">
+      <section class="gallery-grid" id="galleryGrid">
+        <!-- Block 1: The Anchor (Big Video) -->
+        <div
+          class="gallery-item span-lg"
+          data-type="video"
+          data-src="https://assets.mixkit.co/videos/preview/mixkit-children-at-a-desks-in-a-classroom-9637-large.mp4"
+        >
+          <video
+            muted
+            loop
+            playsinline
+            poster="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=50&w=800"
+          >
+            <source
+              src="https://assets.mixkit.co/videos/preview/mixkit-children-at-a-desks-in-a-classroom-9637-large.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+          <div class="item-overlay">
+            <div class="item-caption">Classroom Interactive Session</div>
+          </div>
+        </div>
+
+        <!-- Block 2: Supporting Detail -->
+        <div
+          class="gallery-item span-v"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=600"
+            alt="Science Lab"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Scientific Exploration</div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-item"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&q=80&w=600"
+            alt="Outdoor Play"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Early Years Playtime</div>
+          </div>
+        </div>
+
+        <!-- Block 3: Secondary Anchor (Vertical Video) -->
+        <div
+          class="gallery-item span-v"
+          data-type="video"
+          data-src="https://assets.mixkit.co/videos/preview/mixkit-kids-playing-with-colorful-toys-at-school-42353-large.mp4"
+        >
+          <video
+            muted
+            loop
+            playsinline
+            poster="https://images.unsplash.com/photo-1577896851231-70ef1460375e?auto=format&fit=crop&q=50&w=600"
+          >
+            <source
+              src="https://assets.mixkit.co/videos/preview/mixkit-kids-playing-with-colorful-toys-at-school-42353-large.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+          <div class="item-overlay">
+            <div class="item-caption">Creative Arts</div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-item"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=600"
+            alt="Presentation"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Seminars & Talks</div>
+          </div>
+        </div>
+
+        <!-- Block 4: Wide Feature (Landscape Video) -->
+        <div
+          class="gallery-item span-h"
+          data-type="video"
+          data-src="https://assets.mixkit.co/videos/preview/mixkit-students-walking-in-a-university-campus-41589-large.mp4"
+        >
+          <video
+            muted
+            loop
+            playsinline
+            poster="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=50&w=800"
+          >
+            <source
+              src="https://assets.mixkit.co/videos/preview/mixkit-students-walking-in-a-university-campus-41589-large.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+          <div class="item-overlay">
+            <div class="item-caption">Campus Environment</div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-item"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&q=80&w=600"
+            alt="Library"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Digital Resource Center</div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-item span-v"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1511629091441-ee46146481b6?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1511629091441-ee46146481b6?auto=format&fit=crop&q=80&w=600"
+            alt="Sports Day"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Annual Sports Meet</div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-item"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&q=80&w=600"
+            alt="Classroom"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Junior Classrooms</div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-item"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600"
+            alt="Yoga"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Wellness & Yoga</div>
+          </div>
+        </div>
+
+        <div
+          class="gallery-item span-h"
+          data-type="image"
+          data-src="https://images.unsplash.com/photo-1501290830383-bab933e94bc6?auto=format&fit=crop&q=80&w=1200"
+        >
+          <img
+            src="https://images.unsplash.com/photo-1501290830383-bab933e94bc6?auto=format&fit=crop&q=80&w=800"
+            alt="Performance"
+          />
+          <div class="item-overlay">
+            <div class="item-caption">Cultural Celebrations</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="lightbox" id="lightbox">
+      <div class="lightbox-content" id="lightboxContent">
+        <span class="close-lightbox" id="closeLightbox">&times;</span>
+        <!-- Injected -->
+      </div>
+    </div>
+
+    <footer class="ftrfooter">
+      <div class="ftrcontainer">
+        <div class="ftrgrid">
+          <!-- Column 1: Brand Section -->
+          <section class="ftrbrandsection">
+            <div class="ftrlogo">
+              <!-- <img> height/width handled by parent .ftrlogo and object-fit -->
+              <img
+                src="./assets/erasebg-transformed.webp"
+                alt="Jnanapeeta Vidya Samste Logo"
+                onclick="window.location.href = './home.html'"
+              />
+            </div>
+            <h2 class="ftrschoolname">Jnanapeeta Vidya Samste</h2>
+            <p class="ftrdesc">
+              Nurturing young minds through holistic education and traditional
+              values. Empowering students for a brighter, global future since
+              1995.
+            </p>
+          </section>
+
+          <!-- Column 2: Quick Links -->
+          <section class="ftrlinkssection">
+            <h3 class="ftrheading">Quick Links</h3>
+            <nav class="ftrnav">
+              <ul class="ftrnavlist">
+                <li><a href="./home.html" class="ftrlink">HOME</a></li>
+                <li>
+                  <a href="./academics.html" class="ftrlink">ACADEMICS</a>
+                </li>
+                <li><a href="./gallerys.html" class="ftrlink">GALLERY</a></li>
+                <li><a href="./faculty.html" class="ftrlink">FACULTY</a></li>
+                <li>
+                  <a href="./admission.html" class="ftrlink">ADMISSION</a>
+                </li>
+              </ul>
+            </nav>
+          </section>
+
+          <!-- Column 3: Address Section -->
+          <section class="ftraddresssection">
+            <h3 class="ftrheading">Contact Us</h3>
+            <address class="ftraddress">
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Campus Address</strong>
+                  #123, Scholars Lane, Vidya Nagar,<br />
+                  Bangalore, Karnataka - 560001
+                </div>
+              </div>
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Phone</strong>
+                  +91 80 2345 6789<br />
+                  +91 98765 43210
+                </div>
+              </div>
+              <div class="ftrcontactitem">
+                <div>
+                  <strong>Email</strong>
+                  info@jnanapeeta.edu.in
+                </div>
+              </div>
+            </address>
+          </section>
+
+          <!-- Column 4: Map Section -->
+          <section class="ftrmapsection">
+            <h3 class="ftrheading">Location</h3>
+            <div class="ftrmapcontainer">
+              <iframe
+                class="ftrmapframe"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896.566827310653!2d77.00013177411121!3d12.41190632690392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf08a450bb9655%3A0x529b67261e1a741e!2sJNANAPEETA%20VIDYA%20SAMSTHE%20(JPVS)DUGGANAHALLI!5e0!3m2!1sen!2sin!4v1778065613750!5m2!1sen!2sin"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </section>
+        </div>
+
+        <!-- Social Row -->
+        <div class="ftrsocialrow">
+          <div class="ftrcopyright">
+            &copy; 2024
+            <span class="ftraccent-text">Jnanapeeta Vidya Samste</span>. All
+            Rights Reserved.Design & Developed by
+            <a
+              href="https://arouzatechlabs.in/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="
+                text-decoration: none;
+                color: var(--accent);
+                font-weight: 600;
+              "
+              >AROUZA TECHLABS</a
+            >.
+          </div>
+          <div class="ftrsocialgroup">
+            <!-- Facebook -->
+            <a href="#" class="ftrsocialicon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+                />
+              </svg>
+            </a>
+            <!-- Instagram -->
+            <a href="#" class="ftrsocialicon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+            <!-- Twitter (X) -->
+            <a href="#" class="ftrsocialicon" aria-label="Twitter">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" class="ftrsocialicon" aria-label="YouTube">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav2.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const galleryItems = document.querySelectorAll(".gallery-item");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxContent = document.getElementById("lightboxContent");
+
+        // Subtle Hover Previews
+        const gridVideos = document.querySelectorAll(".gallery-grid video");
+        gridVideos.forEach((v) => {
+          const parent = v.closest(".gallery-item");
+          parent.addEventListener("mouseenter", () => v.play());
+          parent.addEventListener("mouseleave", () => {
+            v.pause();
+            v.currentTime = 0;
+          });
+        });
+
+        galleryItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const type = item.getAttribute("data-type");
+            const src = item.getAttribute("data-src");
+
+            lightboxContent.innerHTML =
+              '<span class="close-lightbox" id="closeLightbox">&times;</span>';
+
+            if (type === "image") {
+              const img = document.createElement("img");
+              img.src = src;
+              lightboxContent.appendChild(img);
+            } else {
+              const video = document.createElement("video");
+              video.src = src;
+              video.controls = true;
+              video.autoplay = true;
+              lightboxContent.appendChild(video);
+            }
+
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+
+            document
+              .getElementById("closeLightbox")
+              .addEventListener("click", closeLightbox);
+          });
+        });
+
+        function closeLightbox() {
+          lightbox.classList.remove("active");
+          lightboxContent.innerHTML = "";
+          document.body.style.overflow = "auto";
+        }
+
+        lightbox.addEventListener("click", (e) => {
+          if (e.target === lightbox) closeLightbox();
+        });
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeLightbox();
+        });
+      });
+    </script>
+  </body>
+</html>

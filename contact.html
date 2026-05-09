@@ -1,0 +1,976 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | JNANA PEETA EDUCATIONAL AND CHARITABLE TRUST</title>
+    <meta
+      name="description"
+      content="Contact JNANA PEETA EDUCATIONAL AND CHARITABLE TRUST for education support, donations, and community services."
+    />
+    <link rel="stylesheet" href="./nav.css" />
+    <link rel="stylesheet" href="./footer.css" />
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --cntPrimary: #1e463b;
+        --cntPrimaryHover: #2e7d5b;
+        --cntSecondaryText: #344054;
+        --cntMutedText: #6b7280;
+        --cntBgLight: #f1f5f9;
+        --cntBgWhite: #fafafa;
+        --cntAccent: #f2b705;
+        --cntAccentHover: #ffd166;
+        --cntTransition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      body {
+        background-color: var(--cntBgWhite);
+        color: var(--cntSecondaryText);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* --- UTILITIES --- */
+      .cntContainer {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* --- HERO SECTION --- */
+      .cntHeroSection {
+        width: 100%;
+        height: 60vh;
+        background:
+          linear-gradient(rgba(30, 70, 59, 0.85), rgba(30, 70, 59, 0.85)),
+          url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")
+            center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+      }
+
+      @media (min-width: 1024px) {
+        .cntHeroSection {
+          height: 70vh;
+        }
+      }
+
+      .cntHeroTitle {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+
+      .cntBreadcrumb {
+        font-size: 1rem;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .cntBreadcrumb a {
+        color: var(--cntAccent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .cntBreadcrumb span {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* --- CONTACT INFO CARDS --- */
+      .cntInfoCardsWrapper {
+        margin-top: -60px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 80px;
+      }
+
+      @media (min-width: 768px) {
+        .cntInfoCardsWrapper {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      .cntInfoCard {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 10px; /* Allowed ONLY here */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: var(--cntTransition);
+        cursor: default;
+      }
+
+      .cntInfoCard:hover {
+        transform: translateY(-10px);
+      }
+
+      .cntCardIcon {
+        width: 60px;
+        height: 60px;
+        background: var(--cntBgLight);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        transition: var(--cntTransition);
+      }
+
+      .cntInfoCard:hover .cntCardIcon {
+        background: var(--cntAccent);
+      }
+
+      .cntCardIcon svg {
+        width: 28px;
+        height: 28px;
+        fill: var(--cntPrimary);
+        transition: var(--cntTransition);
+      }
+
+      .cntInfoCard:hover .cntCardIcon svg {
+        fill: #fff;
+      }
+
+      .cntCardTitle {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--cntPrimary);
+        margin-bottom: 10px;
+      }
+
+      .cntCardText {
+        font-size: 0.95rem;
+        color: var(--cntMutedText);
+      }
+
+      /* --- MAIN CONTACT SECTION (MATCHING REFERENCE) --- */
+      .cntMainContactSection {
+        padding: 100px 0;
+        background:
+          linear-gradient(rgba(30, 70, 59, 0.92), rgba(30, 70, 59, 0.92)),
+          url("https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80")
+            center/cover no-repeat;
+        color: #fff;
+        /* Added margin bottom to create gap between form section and map */
+        margin-bottom: 80px;
+      }
+
+      .cntMainGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      @media (min-width: 1024px) {
+        .cntMainGrid {
+          grid-template-columns: 1fr 1.2fr;
+        }
+      }
+
+      /* --- LEFT SIDE: CONTENT --- */
+      .cntTrustName {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .cntTrustSubtitle {
+        font-size: 1.1rem;
+        color: var(--cntAccent);
+        margin-bottom: 40px;
+        font-weight: 500;
+        display: block;
+      }
+
+      .cntDetailItem {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .cntDetailIcon {
+        width: 24px;
+        height: 24px;
+        fill: var(--cntAccent);
+        flex-shrink: 0;
+        margin-top: 5px;
+      }
+
+      .cntDetailContent h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+      }
+
+      .cntDetailContent p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+      }
+
+      .cntSocialWrapper {
+        margin-top: 40px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .cntSocialBtn {
+        padding: 10px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: transparent;
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        transition: var(--cntTransition);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .cntSocialBtn:hover {
+        background: var(--cntAccent);
+        border-color: var(--cntAccent);
+        color: var(--cntPrimary);
+      }
+
+      /* --- RIGHT SIDE: FORM (SHARP EDGES) --- */
+      .cntFormWrapper {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        /* STRICT: NO BORDER RADIUS */
+        border-radius: 0;
+      }
+
+      .cntFormRow {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      @media (min-width: 640px) {
+        .cntFormRow.cntTwoCol {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .cntInputGroup {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cntInput,
+      .cntTextarea {
+        width: 100%;
+        padding: 15px;
+        background: var(--cntBgLight);
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        color: var(--cntSecondaryText);
+        /* STRICT: NO BORDER RADIUS */
+        border-radius: 0;
+        transition: var(--cntTransition);
+      }
+
+      .cntInput:focus,
+      .cntTextarea:focus {
+        box-shadow: inset 0 0 0 2px var(--cntPrimaryHover);
+      }
+
+      .cntTextarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .cntSubmitBtn {
+        width: 100%;
+        padding: 18px;
+        background: var(--cntPrimary);
+        color: #fff;
+        border: none;
+        font-weight: 700;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: var(--cntTransition);
+        /* STRICT: NO BORDER RADIUS */
+        border-radius: 0;
+      }
+
+      .cntSubmitBtn:hover {
+        background: var(--cntAccent);
+        color: var(--cntPrimary);
+      }
+
+      /* --- MAP SECTION --- */
+      .cntMapSection {
+        width: 100%;
+        height: 450px;
+        background: #eee;
+        line-height: 0;
+        /* Extra top border or shadow to separate from white background if needed */
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .cntMapSection iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* --- ANIMATIONS --- */
+      @keyframes cntFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .cntAnimateFade {
+        animation: cntFadeUp 0.8s ease forwards;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOPBAR -->
+    <div class="arzTopbar" id="arzTopbar">
+      <div class="arzTopbarLeft">
+        <div class="arzScrollingTagline">
+          Empowering Lives Through Education & Care | Together We Build a Better
+          Tomorrow | Empowering Lives Through Education & Care | Together We
+          Build a Better Tomorrow
+        </div>
+      </div>
+      <div class="arzTopbarRight">
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+          />
+        </svg>
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+          />
+        </svg>
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.294 19.497h2.039L6.482 3.239H4.293l13.314 17.411z"
+          />
+        </svg>
+        <svg class="arzSocialIcon" viewBox="0 0 24 24">
+          <path
+            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <nav class="arzNavbar" id="arzNavbar">
+      <a href="./index.html" class="arzBrandContainer">
+        <div class="arzLogoContainer">
+          <img src="./assets/logo.webp" alt="JNANA PEETA Logo" />
+        </div>
+        <div class="arzTrustName" id="arzTrustName">
+          <span class="arzMainName">Jnanapeeta</span>
+          <span class="arzSubName">Educational and Charitable Trust</span>
+        </div>
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="arzNavLinks">
+        <a href="./index.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Home
+        </a>
+        <a href="./services.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+            ></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+          Services
+        </a>
+        <a href="./about.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          About
+        </a>
+        <a href="./gallery.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          Gallery
+        </a>
+        <a href="./school.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"
+            ></path>
+          </svg>
+          JPVS School
+        </a>
+        <a href="./contact.html" class="arzNavLink">
+          <svg
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Contact
+        </a>
+        <a href="./donation.html" class="arzDonationBtn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.72-8.72 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+            ></path>
+          </svg>
+          Donation
+        </a>
+      </div>
+
+      <!-- Hamburger Icon -->
+      <div class="arzHamburger" id="arzHamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- FULLSCREEN MOBILE MENU -->
+    <div class="arzMenuOverlay" id="arzMenuOverlay">
+      <div class="arzMenuClose" id="arzMenuClose">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </div>
+
+      <div class="arzMobileLogoSection">
+        <img src="./assets/logo.webp" alt="Logo" />
+        <div class="arzTrustName">
+          <span class="arzMainName" style="font-size: 16px">Jnanapeeta</span>
+          <span class="arzSubName" style="font-size: 11px"
+            >Educational and Charitable Trust</span
+          >
+        </div>
+      </div>
+
+      <div class="arzMobileLinks">
+        <a href="./index.html" class="arzMobileLink">Home</a>
+        <a href="./services.html" class="arzMobileLink">Services</a>
+        <a href="./about.html" class="arzMobileLink">About</a>
+        <a href="./gallery.html" class="arzMobileLink">Gallery</a>
+        <a href="./school.html" class="arzMobileLink">JPVS School</a>
+        <a href="./contact.html" class="arzMobileLink">Contact</a>
+        <a
+          href="./donation.html"
+          class="arzDonationBtn"
+          style="margin-top: 20px; align-self: flex-start"
+        >
+          Donation
+        </a>
+      </div>
+    </div>
+    <!-- HERO SECTION -->
+    <header class="cntHeroSection">
+      <h1 class="cntHeroTitle cntAnimateFade">Contact Us</h1>
+      <div class="cntBreadcrumb cntAnimateFade" style="animation-delay: 0.2s">
+        <a href="#">Home</a>
+        <span>&gt;</span>
+        <span>Contact Us</span>
+      </div>
+    </header>
+
+    <!-- CONTACT INFO CARDS -->
+    <section class="cntContainer">
+      <div class="cntInfoCardsWrapper">
+        <!-- Address Card -->
+        <div class="cntInfoCard">
+          <div class="cntCardIcon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+              />
+            </svg>
+          </div>
+          <h3 class="cntCardTitle">Our Address</h3>
+          <p class="cntCardText">725 5th Ave, New York,<br />NY 10022, USA</p>
+        </div>
+
+        <!-- Phone Card -->
+        <div class="cntInfoCard">
+          <div class="cntCardIcon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+              />
+            </svg>
+          </div>
+          <h3 class="cntCardTitle">Phone Number</h3>
+          <p class="cntCardText">+1 234 567 890<br />+1 987 654 321</p>
+        </div>
+
+        <!-- Email Card -->
+        <div class="cntInfoCard">
+          <div class="cntCardIcon">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+              />
+            </svg>
+          </div>
+          <h3 class="cntCardTitle">Email Address</h3>
+          <p class="cntCardText">
+            contact@jnanapeeta.org<br />support@trustinfo.com
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTACT SECTION -->
+    <section class="cntMainContactSection">
+      <div class="cntContainer">
+        <div class="cntMainGrid">
+          <!-- Left Side: Trust Details -->
+          <div class="cntLeftContent">
+            <h2 class="cntTrustName">JNANA PEETA TRUST</h2>
+            <span class="cntTrustSubtitle">Global Educational Excellence</span>
+
+            <div class="cntDetailItem">
+              <svg class="cntDetailIcon" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                />
+              </svg>
+              <div class="cntDetailContent">
+                <h4>Location</h4>
+                <p>725 5th Ave, New York, NY 10022, USA</p>
+              </div>
+            </div>
+
+            <div class="cntDetailItem">
+              <svg class="cntDetailIcon" viewBox="0 0 24 24">
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                />
+              </svg>
+              <div class="cntDetailContent">
+                <h4>Email Us</h4>
+                <p>contact@jnanapeeta.org</p>
+              </div>
+            </div>
+
+            <div class="cntDetailItem">
+              <svg class="cntDetailIcon" viewBox="0 0 24 24">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                />
+              </svg>
+              <div class="cntDetailContent">
+                <h4>Call Us</h4>
+                <p>+1 234 567 890</p>
+              </div>
+            </div>
+
+            <div class="cntSocialWrapper">
+              <a href="#" class="cntSocialBtn">Facebook</a>
+              <a href="#" class="cntSocialBtn">Instagram</a>
+              <a href="#" class="cntSocialBtn">LinkedIn</a>
+              <a href="#" class="cntSocialBtn">Twitter</a>
+            </div>
+          </div>
+
+          <!-- Right Side: Sharp Form -->
+          <div class="cntFormWrapper">
+            <form
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              id="cntContactForm"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission"
+              />
+
+              <div class="cntFormRow cntTwoCol">
+                <div class="cntInputGroup">
+                  <input
+                    type="text"
+                    name="name"
+                    class="cntInput"
+                    placeholder="Full Name"
+                    required
+                  />
+                </div>
+                <div class="cntInputGroup">
+                  <input
+                    type="email"
+                    name="email"
+                    class="cntInput"
+                    placeholder="Email Address"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="cntFormRow cntTwoCol">
+                <div class="cntInputGroup">
+                  <input
+                    type="tel"
+                    name="phone"
+                    class="cntInput"
+                    placeholder="Phone Number"
+                  />
+                </div>
+                <div class="cntInputGroup">
+                  <input
+                    type="text"
+                    name="subject"
+                    class="cntInput"
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="cntFormRow">
+                <div class="cntInputGroup">
+                  <textarea
+                    name="message"
+                    class="cntTextarea"
+                    placeholder="Your Message"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="cntSubmitBtn">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP SECTION -->
+    <section class="cntMapSection">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.9732!3d40.7648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258f97bdb902b%3A0xe69ef062758f8b!2s725%205th%20Ave%2C%20New%20York%2C%20NY%2010022!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+      </iframe>
+    </section>
+    <!-- Scroll target for testing -->
+    <div id="top"></div>
+
+    <footer class="ftrFooter">
+      <div class="ftrContainer">
+        <div class="ftrGrid ftrFadeIn" id="ftrMainGrid">
+          <!-- SECTION 1: ABOUT -->
+          <div class="ftrSectionLogo">
+            <div class="ftrLogoPlaceholder">
+              <img
+                src="./assets/logo.webp"
+                alt="logo"
+                onclick="window.location.href = './index.html'"
+              />
+            </div>
+            <h3 class="ftrTrustName">
+              JNANA PEETA EDUCATIONAL AND CHARITABLE TRUST
+            </h3>
+            <p class="ftrDescription">
+              Empowering lives through education, healthcare, and rural
+              development. Dedicated to building a sustainable and equitable
+              future for all.
+            </p>
+          </div>
+
+          <!-- SECTION 2: LINKS -->
+          <nav class="ftrSectionLinks">
+            <h4 class="ftrTitle">Quick Links</h4>
+            <ul class="ftrLinkList">
+              <li class="ftrLinkItem">
+                <a href="./index.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Home</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./about.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >About</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./contact.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Contact</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./gallery.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Gallery</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./services.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Services</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./school.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >JPVS School</a
+                >
+              </li>
+              <li class="ftrLinkItem">
+                <a href="./donation.html"
+                  ><svg viewBox="0 0 24 24">
+                    <path
+                      d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                    /></svg
+                  >Donation</a
+                >
+              </li>
+            </ul>
+          </nav>
+
+          <!-- SECTION 3: ADDRESS & MAP -->
+          <div class="ftrSectionLocation">
+            <h4 class="ftrTitle">Visit Us</h4>
+            <address class="ftrAddressBlock">
+              M M ROAD DUGGANAHALLI VILLAGE AND POST<br />
+              MALAVALLI TALUK MANDYA DISTRICT<br />
+              KIRAGAVALU HOBALI<br />
+              PIN CODE - 571430
+            </address>
+            <div class="ftrLocationWrapper">
+              <iframe
+                class="ftrMapEmbed"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4501.89930874704!2d76.9964373505319!3d12.412484234540736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf08a450bb9655%3A0x529b67261e1a741e!2sJNANAPEETA%20VIDYA%20SAMSTHE%20(JPVS)DUGGANAHALLI!5e0!3m2!1sen!2sin!4v1777523271236!5m2!1sen!2sin"
+                allowfullscreen=""
+                loading="lazy"
+              >
+              </iframe>
+              <img
+                class="ftrQrCode"
+                src="./assets/qr.webp"
+                alt="Scan to visit website"
+              />
+            </div>
+          </div>
+
+          <!-- SECTION 4: SOCIALS -->
+          <div class="ftrSectionSocial">
+            <h4 class="ftrTitle">Follow Us</h4>
+            <p class="ftrDescription">
+              Stay updated with our latest activities and programs on social
+              media.
+            </p>
+            <div class="ftrSocialContainer">
+              <a href="#" class="ftrSocialIcon" aria-label="Facebook">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.14h-3v4.11h3V22h5V11.58h4.07l.2-4.12z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="Instagram">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m4.4 3a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m5-2.5a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="Twitter">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.045 4.126H5.078z"
+                  />
+                </svg>
+              </a>
+              <a href="#" class="ftrSocialIcon" aria-label="YouTube">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M21.58 7.19a3.02 3.02 0 0 0-2.12-2.13C17.59 4.5 12 4.5 12 4.5s-5.59 0-7.46.56a3.02 3.02 0 0 0-2.12 2.13C2 9.06 2 12 2 12s0 2.94.42 4.81a3.02 3.02 0 0 0 2.12 2.13c1.87.56 7.46.56 7.46.56s5.59 0 7.46-.56a3.02 3.02 0 0 0 2.12-2.13C22 14.94 22 12 22 12s0-2.94-.42-4.81zM9.54 15.56V8.44L15.81 12l-6.27 3.56z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="ftrCopyright">
+          &copy; <span id="ftrYear"></span> JNANA PEETA EDUCATIONAL AND
+          CHARITABLE TRUST. All Rights Reserved.Designed by
+          <a
+            href="https://www.arouzatechlabs.in/"
+            target="_blank"
+            style="color: var(--ftrAccent); text-decoration: none"
+            >AROUZA TECHLABS</a
+          >.
+        </div>
+      </div>
+
+      <button class="ftrBackToTop" id="ftrBackToTop" title="Back to top">
+        <svg viewBox="0 0 24 24">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+      </button>
+    </footer>
+    <script src="./nav.js" defer></script>
+    <script src="./footer.js" defer></script>
+    <script>
+      // FORM INTERACTION HANDLING
+      const cntForm = document.getElementById("cntContactForm");
+
+      cntForm.addEventListener("submit", function (e) {
+        const btn = this.querySelector(".cntSubmitBtn");
+        btn.textContent = "SENDING...";
+        btn.style.opacity = "0.7";
+        btn.style.pointerEvents = "none";
+      });
+
+      // INPUT FOCUS EFFECTS
+      const cntInputs = document.querySelectorAll(".cntInput, .cntTextarea");
+      cntInputs.forEach((input) => {
+        input.addEventListener("focus", () => {
+          input.parentElement.style.zIndex = "10";
+        });
+        input.addEventListener("blur", () => {
+          input.parentElement.style.zIndex = "1";
+        });
+      });
+
+      // SMOOTH SCROLL REVEAL
+      const cntRevealOnScroll = () => {
+        const elements = document.querySelectorAll(
+          ".cntInfoCard, .cntLeftContent, .cntFormWrapper",
+        );
+        elements.forEach((el) => {
+          const elementTop = el.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          if (elementTop < windowHeight - 100) {
+            el.style.opacity = "1";
+            el.style.transform = "translateY(0)";
+          }
+        });
+      };
+
+      // Initialize state for observer
+      document
+        .querySelectorAll(".cntInfoCard, .cntLeftContent, .cntFormWrapper")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "all 0.8s ease-out";
+        });
+
+      window.addEventListener("scroll", cntRevealOnScroll);
+      window.addEventListener("load", cntRevealOnScroll);
+    </script>
+  </body>
+</html>
